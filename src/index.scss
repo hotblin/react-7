@@ -1,0 +1,168 @@
+.inline {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+body * {
+  outline: 0 !important;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+#root{
+  height: 100%;
+}
+.app-view {
+  font-family: "Lato", sans-serif !important;
+  color: #666666;
+  background: #e8e8e8;
+  min-height: 100vh;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 0 15px;
+  font-weight: 300;
+}
+
+h3 {
+  line-height: 1.4em;
+}
+
+p {
+  margin: 0 0 15px;
+}
+
+p.lead {
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: #007aff;
+}
+
+a:hover {
+  color: #666666;
+  text-decoration: none;
+}
+
+ul.no-style {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+
+  &.no-style {
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  margin-bottom: 30px;
+}
+
+blockquote p {
+  margin-bottom: 10px;
+}
+
+blockquote.pull-right {
+  text-align: right;
+}
+
+dl {
+  margin: 0 0 20px;
+}
+
+dl dd {
+  margin-bottom: 15px;
+}
+
+::-moz-selection {
+  background: #007aff;
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: #007aff;
+  color: white;
+  text-shadow: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbbbbb;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dddddd;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.opacity .radio,
+.opacity .checkbox {
+  margin: 0 0 10px;
+}
+
+.opacity input[type="checkbox"],
+.opacity input[type="radio"] {
+  display: none;
+}
+
+.opacity input[type="checkbox"]+span:before,
+.opacity input[type="radio"]+span:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: -20px;
+  background: white;
+  border-radius: 3px;
+  border: 1px solid #c8c8c8;
+}
+
+.main-nav-menu {
+  .ant-menu-sub {
+    &.ant-menu-vertical {
+      background: #fff;
+    }
+  }
+}
