@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route ,  Switch,Redirect} from 'react-router-dom';
-import Page1 from '@pages/page';
+import Dashboard from '@pages/Dashboard/Dashboard';
 import './HomeMain.scss';
 export default class HomeMain extends React.Component{
 
@@ -8,10 +8,9 @@ export default class HomeMain extends React.Component{
     return (
       <div className="home-main">
         <Switch>
-          <Redirect from="/" to="/home" exact></Redirect>
-          <Route path='/home' component={Page1}></Route>
+          <Redirect from="/" to="/dashboard" exact></Redirect>
+          <Route path='/dashboard' component={Dashboard}></Route>
         </Switch>
-        <div style={{clear:"both"}}></div>
       </div>
     )
   }

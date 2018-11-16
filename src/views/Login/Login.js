@@ -1,57 +1,75 @@
 import React from 'react';
-import {FormGroup,Button,Col,FormControl} from 'react-bootstrap';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import './Login.scss';
 import imgUrl from '@static/image/login-blurry-bg.jpg';
 import logoUrl from '@static/image/login-logo.png';
-class Login extends React.Component{
+
+const FormItem = Form.Item;
+
+class LoginWrapper extends React.Component{
   state = {
     value:""
   }
+
   getValidationState = () => {
 
   }
+
   handleChange = (e) =>{
-    // console.log(this)
     this.setState({
       value:e.target.value
     })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const {history}  = this.props;
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        history.push('/');
+      }else{
+        // console.log('Received values of form: ', values);
+      }
+  })
+  }
+
 
   render(){
+    const { getFieldDecorator } = this.props.form;
     return (
       <div className="login-wrapper" style={{backgroundImage: 'url('+imgUrl+')'}}>
         <div className="login-container active">
           <a href="">
             <img src={logoUrl} alt="seven" width="100" height="30"/>
           </a>
-          <form>
-            <FormGroup controlId="formValidationSuccess1" validationState={this.getValidationState()}>
-              <FormControl type="text" placeholder="Username or Email"
-                value={this.state.value}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <FormGroup controlId="formValidationSuccess1" validationState={this.getValidationState()}>
-              <FormControl type="password" placeholder="password"
-                value={this.state.value}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <div className="form-options clearfix opacity">
-              <a className="pull-right" href="#">忘记密码?</a>
-              <div className="text-left">
-                <label className="checkbox" htmlFor="remeberpassword">
-                  <input type="checkbox" id="remeberpassword"/>
-                  <span>记住密码</span>
-                </label>
-              </div>
-            </div>
-            <FormGroup>
-              <Button type="submit" style={{width:'100%'}}>Sign in</Button>
-            </FormGroup>
-             
-          </form>
+          <Form onSubmit={this.handleSubmit} className="login-form">
+            <FormItem>
+            {getFieldDecorator('userName', {
+              rules: [{ required: true, message: 'Please input your username!' }],
+            })(
+              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            )}
+            </FormItem>
+            <FormItem>
+            {getFieldDecorator('password', {
+              rules: [{ required: true, message: 'Please input your Password!' }],
+            })(
+              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+            )}
+            </FormItem>
+            <FormItem className="text-center">
+              {getFieldDecorator('remember', {
+                valuePropName: 'checked',
+                initialValue: true,
+              })(
+                <Checkbox>Remember me</Checkbox>
+              )}
+              <a className="login-form-forgot" href="">Forgot password</a>
+              <Button type="primary" htmlType="submit" className="login-form-button">
+                Log in
+              </Button>
+            </FormItem>
+          </Form>
           <p className="signup">
             Don't have an account yet? <a href="signup1.html">Sign up now</a>
           </p>
@@ -61,4 +79,5 @@ class Login extends React.Component{
   }
 }
 
+const Login = Form.create()(LoginWrapper);
 export default Login;

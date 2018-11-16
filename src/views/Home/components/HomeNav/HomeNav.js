@@ -84,7 +84,9 @@ export default class NavModule extends PureComponent {
           </div>
 
           <div className="float-left">
-            <a href="" className="logo" style={{backgroundImage: 'url('+headeLogoUrl+')'}}></a>
+            <a href="javascript:void(0);" 
+              className="link-button logo" 
+              style={{backgroundImage: 'url(' + headeLogoUrl + ')'}}/>
           </div>
         </div>
         <MainNav/>
