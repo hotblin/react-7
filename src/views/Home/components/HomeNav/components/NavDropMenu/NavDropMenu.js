@@ -1,10 +1,16 @@
 import React  from 'react';
 import { Menu, Dropdown, Icon,Avatar } from 'antd';
+import {withRouter} from 'react-router-dom' ;
 import avatar_url from '@static/image/avatar-male.jpg';
-export default class NavDropMenu extends React.Component {
+
+class NavDropMenuWrapper extends React.Component {
 
   menuChange = (visible) => {
     this.props.isActive(visible);
+  }
+  loginOut = () => {
+    const {history}  = this.props;
+    history.push('/login');
   }
 
   render(){
@@ -18,7 +24,7 @@ export default class NavDropMenu extends React.Component {
           <a href="http://www.taobao.com/">2nd menu item</a>
         </Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="3">3rd menu item</Menu.Item>
+        <Menu.Item key="3" onClick={this.loginOut}>退出登录</Menu.Item>
       </Menu>
     )
 
@@ -29,7 +35,8 @@ export default class NavDropMenu extends React.Component {
         </a>
       </Dropdown>
     )
-
-
   }
 }
+
+const NavDropMenu = withRouter(NavDropMenuWrapper);
+export default NavDropMenu;
