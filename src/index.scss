@@ -15,19 +15,24 @@ body {
 
 html {
   height: 100%;
+  background: #e8e8e8;
 }
 
 body {
   margin: 0;
   box-sizing: border-box;
+
 }
-#root{
+
+#root {
   height: 100%;
+  background: #e8e8e8;
 }
+
 .app-view {
   font-family: "Lato", sans-serif !important;
   color: #666666;
-  background: #e8e8e8;
+  // background: #e8e8e8;
   min-height: 100vh;
   height: 100%;
 }
@@ -159,10 +164,41 @@ dl dd {
   border: 1px solid #c8c8c8;
 }
 
+button {
+  &.link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+
 .main-nav-menu {
   .ant-menu-sub {
     &.ant-menu-vertical {
       background: #fff;
     }
   }
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid #000;
+  border-right: 4px solid transparent;
+  border-bottom: 0 dotted;
+  border-left: 4px solid transparent;
+  content: "";
 }
