@@ -1,0 +1,90 @@
+.noticeButton {
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.icon {
+  padding: 4px;
+}
+
+.popover {
+  width: 336px;
+
+  .ant-popover-inner-content {
+    padding: 5px;
+  }
+}
+
+.tabs {
+  &.ant-tabs-nav-scroll {
+    text-align: center;
+    .ant-tabs-bar {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.notFound {
+  text-align: center;
+  padding: 73px 0 88px 0;
+  color: red;
+  img {
+    display: inline-block;
+    margin-bottom: 16px;
+    height: 76px;
+  }
+}
+.list {
+  max-height: 400px;
+  overflow: auto;
+  .item {
+    transition: all 0.3s;
+    overflow: hidden;
+    cursor: pointer;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    .meta {
+      width: 100%;
+    }
+
+    .avatar {
+      background: #fff;
+      margin-top: 4px;
+    }
+    .iconElement {
+      font-size: 32px;
+    }
+
+    &.read {
+      opacity: 0.4;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+    &:hover {
+      background: red;
+    }
+    .title {
+      font-weight: normal;
+      margin-bottom: 8px;
+    }
+    .description {
+      font-size: 12px;
+      line-height: 1;
+    }
+    .datetime {
+      font-size: 12px;
+      margin-top: 4px;
+      line-height: 1;
+    }
+    .extra {
+      float: right;
+      color: red;
+      font-weight: normal;
+      margin-right: 0;
+      margin-top: -1.5px;
+    }
+  }
+}

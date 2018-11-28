@@ -8,7 +8,7 @@ export default class HomeMain extends React.Component{
     return (
       <div className="home-main">
         <Switch>
-          <Redirect from="/" to="/dashboard" exact></Redirect>
+          {/* <Redirect from="/" to="/dashboard" exact></Redirect> */}
           <Route path='/dashboard' component={Dashboard}></Route>
         </Switch>
       </div>

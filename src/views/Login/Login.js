@@ -1,44 +1,58 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import './Login.scss';
 import imgUrl from '@static/image/login-blurry-bg.jpg';
 import logoUrl from '@static/image/login-logo.png';
+import {setToken} from '@utils/token';
+import {INCREMENT_ASYNC} from '@actions/user'
+import './Login.scss';
 
 const FormItem = Form.Item;
-
+// @connect(
+//   state=>state.main,
+//   dispatch=>bindActionCreators(INCREMENT,dispatch)
+// )
 class LoginWrapper extends React.Component{
   state = {
-    value:""
+    value:"",
+    active:false
   }
 
-  getValidationState = () => {
-
-  }
-
-  handleChange = (e) =>{
+  isActive = (bool)=>{
     this.setState({
-      value:e.target.value
+      active:bool
     })
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const {increase} =this.props;
+    increase(200);
     const {history}  = this.props;
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        history.push('/');
-      }else{
-        // console.log('Received values of form: ', values);
+        setToken("3213131");
+        // 触发store获取用户信息
+        // setTimeout(_=>{
+        //   history.push('/');
+        // },200)
       }
-  })
+    })
   }
 
+  componentDidMount(){
+    setTimeout(()=>{
+      this.isActive(true);
+    },500)
+  }
 
   render(){
     const { getFieldDecorator } = this.props.form;
+    const {active} = this.state;
     return (
       <div className="login-wrapper" style={{backgroundImage: 'url('+imgUrl+')'}}>
-        <div className="login-container active">
+        <div className={`login-container ${active ? 'active':''}`}>
           <a href="">
             <img src={logoUrl} alt="seven" width="100" height="30"/>
           </a>
@@ -78,6 +92,17 @@ class LoginWrapper extends React.Component{
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    todoList: state.todoList
+  }
+}
+const mapDispatchToProps  = (dispatch, ownProps) => {
+  // console.log(ownProps);
+  return bindActionCreators({
+    increase: INCREMENT_ASYNC,
+  }, dispatch);
+}
 
-const Login = Form.create()(LoginWrapper);
+const Login = Form.create()(connect(mapStateToProps,mapDispatchToProps)(LoginWrapper));
 export default Login;

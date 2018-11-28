@@ -154,7 +154,8 @@ module.exports = {
       "@static": path.resolve(__dirname, `${paths.appSrc}/static/`),
       "@views": path.resolve(__dirname, `${paths.appSrc}/views/`),
       "@pages": path.resolve(__dirname, `${paths.appSrc}/pages/`),
-      "@utils": path.resolve(__dirname, `${paths.appSrc}/utils/`)
+      "@utils": path.resolve(__dirname, `${paths.appSrc}/utils/`),
+      "@actions":path.resolve(__dirname, `${paths.appSrc}/store/actions/`)
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding
