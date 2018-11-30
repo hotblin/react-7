@@ -1,17 +1,29 @@
 import React from 'react';
-import {Route ,  Switch,Redirect} from 'react-router-dom';
-import Dashboard from '@pages/Dashboard/Dashboard';
-import './HomeMain.scss';
-export default class HomeMain extends React.Component{
+import {Route , withRouter,Switch} from 'react-router-dom';
+// import AuthRouter from '@components/AuthRouter/AuthRouter'
 
+import './HomeMain.scss';
+
+const four = _ => {
+  return (
+    <h1>404</h1>
+  )
+}
+
+@withRouter
+class HomeMain extends React.Component{
   render(){
+    // console.log("home main")
     return (
       <div className="home-main">
         <Switch>
-          {/* <Redirect from="/" to="/dashboard" exact></Redirect> */}
-          <Route path='/dashboard' component={Dashboard}></Route>
+          <Route path='/dashboard' exact component={Dashboard}/>
+          <Route path='/dashboard/monitor' exact component={TableList}/>
+          <Route path='*' component={four} exact/>
         </Switch>
       </div>
     )
   }
 }
+
+export default HomeMain;

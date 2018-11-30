@@ -2,7 +2,7 @@ import {
   combineReducers
 } from 'redux';
 
-import userInfo from './userInfo';
+import userInfo from './user';
 import count from './count';
 const companyInfo = {};
 

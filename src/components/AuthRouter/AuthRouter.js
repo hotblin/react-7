@@ -1,25 +1,24 @@
 import React from 'react';
 import {
   Route,
-  Redirect
+  Redirect,
+  withRouter
 } from 'react-router-dom';
-import {
-  getToken
-} from '@utils/token';
+
 const AuthRouter = ({
- Content ,...params
+ Content,token ,...params
 }) => {
   return (
     <Route {...params} render={
-      (props)=>{
+      props => {
         return (
-          !!getToken()?
+          !!token?
           <Content {...props}/>:
-          <Redirect to={{pathname:"/login"}} state={{from:props.location}}/>
+          <Redirect to="/login" state={{from:props.location}}/>
         )
       }
     }/>
   )
 }
 
-export default AuthRouter;
+export default withRouter(AuthRouter);

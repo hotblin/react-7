@@ -10,19 +10,10 @@ export const update_user = () => (dispatch) => {
   }, 1000);
 }
 
-// 组件内触发的方法 INCREMENT_ASYNC,然后会触发到redux-saga
-export const INCREMENT_ASYNC = (a) => {
-  // redux-sage触发到reducer的INCREMENT
+// 组件内触发的方法 GETTING_USER_INFORMATION,然后会触发到 redux-saga
+export const ASYNC_GETTING_USER_INFORMATION = (payload) => {
   return {
-    type: "INCREMENT_ASYNC",
-    payload: a
+    type: "ASYNC_GETTING_USER_INFORMATION",
+    payload
   }
 }
-
-// // redux-sage异步收到数据后会触发这个incream2
-// export const incream2 = (payload) => {
-//   return {
-//     type:"incream2",
-//     payload
-//   }
-// } 

@@ -7,30 +7,37 @@ import {
 } from 'antd';
 
 import {
-  Link
+  withRouter
 } from "react-router-dom";
 
 const { SubMenu } = Menu;
-
-export default class BaseMenu extends PureComponent{
+@withRouter
+class BaseMenu extends PureComponent{
   state ={
     mode:"horizontal"
+  }
+  menuBeClick = ({...rest})=>{
+    const {key} = rest;
+    const {history} = this.props;
+    history.push(key);
   }
   render(){
     const {style} = this.props;
     const {mode} = this.state;
+    const menuBeClick = this.menuBeClick;
     return(
        <Menu
           style={{style}}
           mode={mode}
           theme="dark"
+          onClick={menuBeClick}
           className="top-nav-menu"
         >
           <SubMenu key="1" title={<span className="isblock">
             <Icon type="dashboard" />
             <span>Dashboard</span>
           </span>}>
-            <Menu.Item key="/dashboard/analyise">分析页</Menu.Item>
+            <Menu.Item key="/dashboard">分析页</Menu.Item>
             <Menu.Item key="/dashboard/monitor">监控页</Menu.Item>
             <Menu.Item key="/dashboard/workplace">工作台</Menu.Item>
           </SubMenu>
@@ -39,27 +46,27 @@ export default class BaseMenu extends PureComponent{
               <Icon type="profile" />
               <span>表单页</span>
             </span>}>
-            <Menu.Item key="/dashboard/analyise">基础表单</Menu.Item>
-            <Menu.Item key="/dashboard/monitor">分布表单</Menu.Item>
-            <Menu.Item key="/dashboard/workplace">高级表单</Menu.Item>
+            <Menu.Item key="/form/base">基础表单</Menu.Item>
+            <Menu.Item key="/form/fenbu">分布表单</Menu.Item>
+            <Menu.Item key="/form/workplace">高级表单</Menu.Item>
           </SubMenu>
 
           <SubMenu key="3" title={<span className="isblock">
             <Icon type="table" />
             <span>列表页</span>
           </span>}>
-            <Menu.Item key="/dashboard/analyise">查询表格</Menu.Item>
-            <Menu.Item key="/dashboard/monitor">标准列表</Menu.Item>
-            <Menu.Item key="/dashboard/workplace">卡片列表</Menu.Item>
-            <Menu.Item key="/dashboard/workplace">搜索列表</Menu.Item>
+            <Menu.Item key="/table/query">查询表格</Menu.Item>
+            <Menu.Item key="/table/biaozhun">标准列表</Menu.Item>
+            <Menu.Item key="/table/card">卡片列表</Menu.Item>
+            <Menu.Item key="/table/search">搜索列表</Menu.Item>
           </SubMenu>
         
           <SubMenu key="4" title={<span className="isblock">
              <Icon type="home" />
             <span>详情页</span>
           </span>}>
-            <Menu.Item key="/dashboard/analyise">基础详情页</Menu.Item>
-            <Menu.Item key="/dashboard/monitor">高级详情页</Menu.Item>
+            <Menu.Item key="/detail/base">基础详情页</Menu.Item>
+            <Menu.Item key="/detail/高级">高级详情页</Menu.Item>
           </SubMenu>
 
           <SubMenu key="5" title={<span className="isblock">
@@ -68,27 +75,23 @@ export default class BaseMenu extends PureComponent{
           </span>}>
             <Menu.Item key="9">成功页</Menu.Item>
             <Menu.Item key="10">失败页</Menu.Item>
-            {/* <SubMenu key="sub3" title="Submenu">
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu> */}
           </SubMenu>
 
           <SubMenu key="6" title={<span className="isblock">
             <Icon type="alert" />
             <span>异常页</span>
           </span>}>
-            <Menu.Item key="/dashboard/analyise">403</Menu.Item>
-            <Menu.Item key="/dashboard/monitor">404</Menu.Item>
-            <Menu.Item key="/dashboard/monitor">500</Menu.Item>
+            <Menu.Item key="/page403">403</Menu.Item>
+            <Menu.Item key="/page404">404</Menu.Item>
+            <Menu.Item key="/page500">500</Menu.Item>
           </SubMenu>
 
           <SubMenu key="7" title={<span className="isblock">
             <Icon type="user" />
             <span>个人页</span>
           </span>}>
-            <Menu.Item key="/dashboard/analyise">个人中心</Menu.Item>
-            <Menu.Item key="/dashboard/monitor">个人设置</Menu.Item>
+            <Menu.Item key="/user">个人中心</Menu.Item>
+            <Menu.Item key="/user/setting">个人设置</Menu.Item>
           </SubMenu>
 
          
@@ -96,3 +99,5 @@ export default class BaseMenu extends PureComponent{
     )
   }
 }
+
+export default  BaseMenu;

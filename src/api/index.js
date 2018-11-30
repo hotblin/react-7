@@ -1,22 +1,35 @@
 import axios from 'axios';
-axios.defaults.withCredentials = false;
+import {
+  getToken
+} from '@utils/token';
+
+const env = process.env.NODE_ENV;
+const ip = env === 'development' ? 'http://123.59.136.8:8723' : 'http://123.59.136.8:8723';
 
 axios
   .interceptors
   .request
   .use(config => {
-    let token = "BearereyJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6IlJPTEVfVVNFUixST0xFX1BMQVRGT1JNLFJPTEVfR09WLFJPTEVfQURNSU4sUk9MRV9ERU1PIiwic3ViIjoiemhlbmd3ZWkiLCJleHAiOjE1NzQ5MzAxNDh9.9_ub-rsgGBH7ZsrzVPrEQ8sPCfh2-eT7OImnMJnyBXEzfmpdreTcPq3Xju_rloIKC3rEKFPfBWGBv6wU81SYLQ";
+    const token = getToken();
     if (!!token) {
-      config.headers.common['Authorization'] = token;
+      config.headers.common['Authorization'] = `Bearer ${token}`;
     }
     return config;
   }, error => {
-    return Promise.reject();
+    return Promise.reject(error);
   });
-const ip = 'http://123.59.136.8:8723';
 
-export const getUserInfo = _ => {
+axios.defaults.withCredentials = false;
+
+export const getUserInfo = params => {
+  // console.log(params);
   return axios
     .get(`${ip}/user/me`)
     .then(res => res.data)
+}
+
+export const loginIn = params => {
+  return axios
+    .post(`${ip}/user/login`, params)
+    .then(res => res.data);
 }

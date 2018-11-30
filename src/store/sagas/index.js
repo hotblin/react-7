@@ -1,42 +1,59 @@
-import {
-  delay
-} from 'redux-saga';
+// import {
+//   delay
+// } from 'redux-saga';
 import {
   put,
   takeEvery,
   all,
   call
 } from 'redux-saga/effects';
+
 import {
   getUserInfo
-} from '../../api'
-export function* helloSaga() {
-  // console.log('Hello Sagas!');
-}
+} from '../../api';
+
+
+// import {
+//   getToken
+// } from '@utils/token';
+// import {
+//   incream2
+// } from '../actions/user';
+
 
 // 告诉 middleware 发起一个 INCREMENT 的 action。
 // 实际上就是incrementAsync Saga 通过 delay(1000) 延迟了 1 秒钟，
 // 然后 dispatch 一个叫 INCREMENT 的 action。
 export function* incrementAsync(action) {
-  // console.log("action" + JSON.stringify(action));
-  // yield delay(1000);
-
-  // const p = yield ;
-  // console.log(p);
+  // 演示10s
+  // yield delay(10000);
 
   try {
-    const b = () => getUserInfo()
-    const res = yield call(b);
-    console.log("res" + JSON.stringify(res));
-    put({
+    const b = (params) => getUserInfo(params)
+    const res = yield call(b, "我是params");
+    // console.log("res" + JSON.stringify(res));
+    yield put({
       type: "incream2",
-      res
+      payload: res
     })
   } catch (e) {
 
   }
+}
 
+export function* fetchUser(action) {
 
+  try {
+    const res = yield call(getUserInfo, "我是params");
+    if (res.code === 200) {
+      yield put({
+        type: "SYNC_UPDATE_USERINFO",
+        payload: res.data
+      })
+    }
+  } catch (e) {
+
+  }
 }
 
 //在store.js中，执行了 sagaMiddleware.run(rootSaga),将会执行这里
@@ -46,9 +63,15 @@ function* watchIncrementAsync() {
   yield takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 
+// 在这里监听 ASYNC_GETTING_USER_INFORMATION action
+export function* watchFetchUser() {
+  yield takeEvery("ASYNC_GETTING_USER_INFORMATION", fetchUser)
+}
+
+
 export default function* rootSaga() {
   yield all([
-    helloSaga(),
+    watchFetchUser(),
     watchIncrementAsync()
   ])
 }

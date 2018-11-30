@@ -5,7 +5,8 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import imgUrl from '@static/image/login-blurry-bg.jpg';
 import logoUrl from '@static/image/login-logo.png';
 import {setToken} from '@utils/token';
-import {INCREMENT_ASYNC} from '@actions/user'
+import {ASYNC_GETTING_USER_INFORMATION} from '@actions/user';
+import {loginIn} from '@api';
 import './Login.scss';
 
 const FormItem = Form.Item;
@@ -13,13 +14,14 @@ const FormItem = Form.Item;
 //   state=>state.main,
 //   dispatch=>bindActionCreators(INCREMENT,dispatch)
 // )
+
 class LoginWrapper extends React.Component{
   state = {
     value:"",
     active:false
   }
 
-  isActive = (bool)=>{
+  toggleActive = (bool)=>{
     this.setState({
       active:bool
     })
@@ -27,29 +29,34 @@ class LoginWrapper extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const {increase} =this.props;
-    increase(200);
-    const {history}  = this.props;
+    const {history,dispatchAsync_gettingUserInformation}  = this.props;
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        setToken("3213131");
-        // 触发store获取用户信息
-        // setTimeout(_=>{
-        //   history.push('/');
-        // },200)
+        delete values.remember;
+        loginIn(values).then(res => {
+          if(res.status === 0){
+            setToken(res.result);
+            // 触发store获取用户信息
+            dispatchAsync_gettingUserInformation();
+            setTimeout( _ => {
+              history.push('/');
+            },200)
+          }
+        })
       }
     })
   }
 
   componentDidMount(){
     setTimeout(()=>{
-      this.isActive(true);
-    },500)
+      this.toggleActive(true);
+    },200)
   }
 
   render(){
     const { getFieldDecorator } = this.props.form;
     const {active} = this.state;
+
     return (
       <div className="login-wrapper" style={{backgroundImage: 'url('+imgUrl+')'}}>
         <div className={`login-container ${active ? 'active':''}`}>
@@ -58,17 +65,17 @@ class LoginWrapper extends React.Component{
           </a>
           <Form onSubmit={this.handleSubmit} className="login-form">
             <FormItem>
-            {getFieldDecorator('userName', {
-              rules: [{ required: true, message: 'Please input your username!' }],
+            {getFieldDecorator('username', {
+              rules: [{ required: true, message: '请输入用户名!' }],
             })(
-              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入用户名..." />
             )}
             </FormItem>
             <FormItem>
             {getFieldDecorator('password', {
-              rules: [{ required: true, message: 'Please input your Password!' }],
+              rules: [{ required: true, message: '请输入密码!' }],
             })(
-              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="请输入密码..." />
             )}
             </FormItem>
             <FormItem className="text-center">
@@ -76,33 +83,33 @@ class LoginWrapper extends React.Component{
                 valuePropName: 'checked',
                 initialValue: true,
               })(
-                <Checkbox>Remember me</Checkbox>
+                <Checkbox>记住密码</Checkbox>
               )}
-              <a className="login-form-forgot" href="">Forgot password</a>
+              <a className="login-form-forgot">忘记密码</a>
               <Button type="primary" htmlType="submit" className="login-form-button">
-                Log in
+                登录
               </Button>
             </FormItem>
           </Form>
           <p className="signup">
-            Don't have an account yet? <a href="signup1.html">Sign up now</a>
+            还没有账号？ <a href="signup1.html">立即注册</a>
           </p>
         </div>
       </div>
     )
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    todoList: state.todoList
-  }
-}
-const mapDispatchToProps  = (dispatch, ownProps) => {
-  // console.log(ownProps);
+// const mapStateToProps = (state) => {
+//   return {
+//     todoList: state.todoList
+//   }
+// }
+
+const mapDispatchToProps  = dispatch => {
   return bindActionCreators({
-    increase: INCREMENT_ASYNC,
+    dispatchAsync_gettingUserInformation: ASYNC_GETTING_USER_INFORMATION,
   }, dispatch);
 }
 
-const Login = Form.create()(connect(mapStateToProps,mapDispatchToProps)(LoginWrapper));
+const Login = Form.create()(connect(undefined,mapDispatchToProps)(LoginWrapper));
 export default Login;
