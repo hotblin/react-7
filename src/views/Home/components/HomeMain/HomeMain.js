@@ -6,7 +6,7 @@ import './HomeMain.scss';
 
 const four = _ => {
   return (
-    <h1>404</h1>
+    <h1>404外层</h1>
   )
 }
 

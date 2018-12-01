@@ -8,7 +8,7 @@ export default class TableList extends Component {
   render(){
     console.log("tablelist")
     return (
-      <h1>
+      <h1 style={{marginTop:'88px'}}>
         tablelist
       </h1>
     )

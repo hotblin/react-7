@@ -10,6 +10,7 @@ export default class HeaderBar extends PureComponent{
   }
   render(){
     const width = this.getHeadWidth();
+    console.log(1000000);
     return(
       <Header style={{padding:0,width}} className="fixedHeader">
         <NavHeader {...this.props}/>

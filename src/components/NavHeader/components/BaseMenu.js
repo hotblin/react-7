@@ -38,7 +38,7 @@ class BaseMenu extends PureComponent{
             <span>Dashboard</span>
           </span>}>
             <Menu.Item key="/dashboard">分析页</Menu.Item>
-            <Menu.Item key="/dashboard/monitor">监控页</Menu.Item>
+            <Menu.Item key="/report/workplace">fullpage页面</Menu.Item>
             <Menu.Item key="/dashboard/workplace">工作台</Menu.Item>
           </SubMenu>
           <SubMenu key="2" title={

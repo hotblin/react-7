@@ -7,10 +7,10 @@ import Header from '../Header/Header';
 // import HomeMain from '../HomeMain/HomeMain';
 import Dashboard from '@pages/Dashboard/Dashboard';
 import TableList from '@pages/TableList/TableList';
-
+import FormCustom from '@pages/FormCustom/FormCustom';
 const four = _ => {
   return (
-    <h1>404</h1>
+    <h1>404内层</h1>
   )
 }
 
@@ -18,19 +18,20 @@ const four = _ => {
 @withRouter
 class HomeContnt extends Component{
   render(){
+  const {path} = this.props.match;
    return(
     <div className="home-module">
       {/* <HomeNav/> */}
       <Header/>
       {/* <HomeMain/> */}
-       {/* <div className="home-main"> */}
+       <div className="home-main">
         <Switch>
-          <Redirect from="/" to="/dashboard" exact />
           <Route path='/dashboard' exact component={Dashboard}/>
-          <Route path='/dashboard/monitor' exact component={TableList}/>
+          <Route path={path + '/monitor'} exact component={TableList}/>
+          <Route path="/form/base" exact component={FormCustom}/>
           <Route path='*' component={four} exact/>
         </Switch>
-      {/* </div> */}
+      </div>
     </div>
    )
   }
