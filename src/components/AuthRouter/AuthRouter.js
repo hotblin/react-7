@@ -8,6 +8,7 @@ import {
 const AuthRouter = ({
  Content,token ,...params
 }) => {
+  // console.log(token);
   return (
     <Route {...params} render={
       props => {

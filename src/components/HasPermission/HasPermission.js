@@ -6,7 +6,8 @@ import {
 } from 'redux';
 import {
   Switch,
-  withRouter
+  withRouter,
+  Redirect
 } from 'react-router-dom';
 import AuthRouter from '@components/AuthRouter/AuthRouter';
 import {
@@ -86,6 +87,7 @@ class HasPermission extends Component {
   }
   render() {
     const token = getToken();
+    const {props} = this;
     const {
       getUserInfo,
       historyBackLogin,
@@ -99,8 +101,9 @@ class HasPermission extends Component {
         </Switch>
       )
     } else {
-      historyBackLogin();
-      return null;
+      // historyBackLogin();
+       
+      return <Redirect to="/login" state={{from:props.location}}/>;
     }
 
   }
