@@ -79,18 +79,12 @@ class HasPermission extends Component {
       return null
     }
   }
-  historyBackLogin = () => {
-    const {
-      history
-    } = this.props;
-    history.replace('/login')
-  }
+
   render() {
     const token = getToken();
     const {props} = this;
     const {
       getUserInfo,
-      historyBackLogin,
       showWhat
     } = this;
     if (!!token) {
@@ -101,9 +95,12 @@ class HasPermission extends Component {
         </Switch>
       )
     } else {
-      // historyBackLogin();
-       
-      return <Redirect to="/login" state={{from:props.location}}/>;
+      return <Redirect   historyBackLogin = () => {
+    const {
+      history
+    } = this.props;
+    history.replace('/login')
+  }to="/login" state={{from:props.location}}/>;
     }
 
   }
