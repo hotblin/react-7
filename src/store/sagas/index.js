@@ -42,7 +42,9 @@ export function* incrementAsync(action) {
 }
 
 export function* fetchUser(action) {
-
+  const {
+    payload
+  } = action;
   try {
     const res = yield call(getUserInfo, "我是params");
     if (res.code === 200) {
@@ -50,9 +52,11 @@ export function* fetchUser(action) {
         type: "SYNC_UPDATE_USERINFO",
         payload: res.data
       })
+    } else {
+      payload.replace('/login');
     }
   } catch (e) {
-
+    payload.replace('/login');
   }
 }
 
@@ -63,9 +67,9 @@ function* watchIncrementAsync() {
   yield takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 
-// 在这里监听 ASYNC_GETTING_USER_INFORMATION action
+// 在这里监听 ASYNC_GET_USERINFO action
 export function* watchFetchUser() {
-  yield takeEvery("ASYNC_GETTING_USER_INFORMATION", fetchUser)
+  yield takeEvery("ASYNC_GET_USERINFO", fetchUser)
 }
 
 

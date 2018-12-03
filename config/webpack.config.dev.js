@@ -158,6 +158,7 @@ module.exports = {
       "@actions":path.resolve(__dirname, `${paths.appSrc}/store/actions/`),
       "@api":path.resolve(__dirname, `${paths.appSrc}/api`),
       "@store":path.resolve(__dirname, `${paths.appSrc}/store`),
+      "@":path.resolve(__dirname,`${paths.appSrc}`)
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding

@@ -1,12 +1,12 @@
 import React, {
-  PureComponent
+  Component
 } from 'react';
 import logo from '../../static/logo.svg';
-import style from './index.scss';
+import './index.scss';
 import BaseMenu from './components/BaseMenu';
 import BaseRight from './components/BaseRight';
 
-export default class NavHeader extends PureComponent {
+export default class NavHeader extends Component {
   state = {
     maxWidth: 1200,
   };

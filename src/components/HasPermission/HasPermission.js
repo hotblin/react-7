@@ -13,15 +13,17 @@ import AuthRouter from '@components/AuthRouter/AuthRouter';
 import {
   connect
 } from 'react-redux';
-import Home from '@views/Home/Home';
 import {
-  ASYNC_GETTING_USER_INFORMATION
+  ASYNC_GET_USERINFO
 } from '@actions/user';
 
 import {
   getToken
 } from '@utils/token';
-import Home2 from '@views/Home2/Home2';
+
+
+import UserViews from '@/userViews';
+import AdminViews from '@/adminViews';
 
 @connect(
   storeState => {
@@ -30,24 +32,24 @@ import Home2 from '@views/Home2/Home2';
     })
   },
   dispatch => bindActionCreators({
-    dispatchAsync_gettingUserInformation: ASYNC_GETTING_USER_INFORMATION
+    dispatchAsync_get_userinfo: ASYNC_GET_USERINFO
   }, dispatch)
 )
-
 @withRouter
 class HasPermission extends Component {
 
   getUserInfo = () => {
     const {
-      dispatchAsync_gettingUserInformation,
-      userInfo
+      dispatchAsync_get_userinfo,
+      userInfo,
+      history
     } = this.props;
     if (JSON.stringify(userInfo) == "{}") {
-      dispatchAsync_gettingUserInformation();
+      dispatchAsync_get_userinfo(history);
     }
   }
 
-  showWhat = (token) => {
+  displayWhichView = (token) => {
     const {
       userInfo
     } = this.props;
@@ -55,26 +57,9 @@ class HasPermission extends Component {
       roleName
     } = userInfo;
     if (roleName == "ROLE_USER")
-      return ( <AuthRouter path = "/"
-        Content = {
-          Home
-        }
-        token = {
-          token
-        }
-        />
-      )
-
+      return(<AuthRouter path = "/" Content={UserViews} token={token} />);
     else if (roleName == "ROLE_OPERATION") {
-      return ( <AuthRouter path = "/"
-        Content = {
-          Home2
-        }
-        token = {
-          token
-        }
-        />
-      )
+      return (<AuthRouter path = "/" Content={AdminViews} token={token}/>);
     } else {
       return null
     }
@@ -82,27 +67,21 @@ class HasPermission extends Component {
 
   render() {
     const token = getToken();
-    const {props} = this;
     const {
       getUserInfo,
-      showWhat
+      displayWhichView,
+      props
     } = this;
     if (!!token) {
       getUserInfo();
       return (
         <Switch>
-          {showWhat(token)}
+          {displayWhichView(token)}
         </Switch>
       )
     } else {
-      return <Redirect   historyBackLogin = () => {
-    const {
-      history
-    } = this.props;
-    history.replace('/login')
-  }to="/login" state={{from:props.location}}/>;
+      return <Redirect  to="/login" state={{from:props.location}}/>;
     }
-
   }
 }
 

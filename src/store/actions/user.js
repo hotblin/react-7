@@ -11,9 +11,10 @@ export const update_user = () => (dispatch) => {
 }
 
 // 组件内触发的方法 GETTING_USER_INFORMATION,然后会触发到 redux-saga
-export const ASYNC_GETTING_USER_INFORMATION = (payload) => {
+export const ASYNC_GET_USERINFO = (payload) => {
+  console.log(payload);
   return {
-    type: "ASYNC_GETTING_USER_INFORMATION",
+    type: "ASYNC_GET_USERINFO",
     payload
   }
 }

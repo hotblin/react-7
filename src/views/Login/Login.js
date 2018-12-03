@@ -5,7 +5,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import imgUrl from '@static/image/login-blurry-bg.jpg';
 import logoUrl from '@static/image/login-logo.png';
 import {setToken} from '@utils/token';
-import {ASYNC_GETTING_USER_INFORMATION} from '@actions/user';
+import {ASYNC_GET_USERINFO} from '@actions/user';
 import {loginIn} from '@api';
 import './Login.scss';
 
@@ -29,7 +29,7 @@ class LoginWrapper extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const {history,dispatchAsync_gettingUserInformation}  = this.props;
+    const {history,dispatchAsync_get_userinfo}  = this.props;
     this.props.form.validateFields((err, values) => {
       if (!err) {
         delete values.remember;
@@ -37,10 +37,12 @@ class LoginWrapper extends React.Component{
           if(res.status === 0){
             setToken(res.result);
             // 触发store获取用户信息
-            dispatchAsync_gettingUserInformation();
+            dispatchAsync_get_userinfo();
             setTimeout( _ => {
               history.push('/');
             },200)
+          }else{
+            
           }
         })
       }
@@ -107,7 +109,7 @@ class LoginWrapper extends React.Component{
 
 const mapDispatchToProps  = dispatch => {
   return bindActionCreators({
-    dispatchAsync_gettingUserInformation: ASYNC_GETTING_USER_INFORMATION,
+    dispatchAsync_get_userinfo: ASYNC_GET_USERINFO,
   }, dispatch);
 }
 
