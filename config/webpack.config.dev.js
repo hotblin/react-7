@@ -152,12 +152,9 @@ module.exports = {
       // 'react-native': 'react-native-web',
       '@components': path.resolve(__dirname, `${paths.appSrc}/components/`),
       "@static": path.resolve(__dirname, `${paths.appSrc}/static/`),
-      "@views": path.resolve(__dirname, `${paths.appSrc}/views/`),
-      "@pages": path.resolve(__dirname, `${paths.appSrc}/pages/`),
-      "@utils": path.resolve(__dirname, `${paths.appSrc}/utils/`),
-      "@actions":path.resolve(__dirname, `${paths.appSrc}/store/actions/`),
       "@api":path.resolve(__dirname, `${paths.appSrc}/api`),
       "@store":path.resolve(__dirname, `${paths.appSrc}/store`),
+      '@utils': path.resolve(__dirname, `${paths.appSrc}/utils/`),
       "@":path.resolve(__dirname,`${paths.appSrc}`)
     },
     plugins: [

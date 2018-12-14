@@ -178,16 +178,14 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
           parser: safePostCssParser,
-          map: shouldUseSourceMap ?
-            {
-              // `inline: false` forces the sourcemap to be output into a
-              // separate file
-              inline: false,
-              // `annotation: true` appends the sourceMappingURL to the end of
-              // the css file, helping the browser find the sourcemap
-              annotation: true,
-            } :
-            false,
+          map: shouldUseSourceMap ? {
+            // `inline: false` forces the sourcemap to be output into a
+            // separate file
+            inline: false,
+            // `annotation: true` appends the sourceMappingURL to the end of
+            // the css file, helping the browser find the sourcemap
+            annotation: true,
+          } : false,
         },
       }),
     ],
@@ -226,7 +224,9 @@ module.exports = {
       // 'react-native': 'react-native-web',
       '@components': path.resolve(__dirname, `${paths.appSrc}/components/`),
       "@static": path.resolve(__dirname, `${paths.appSrc}/static/`),
-      "@views": path.resolve(__dirname, `${paths.appSrc}/views/`)
+      "@api": path.resolve(__dirname, `${paths.appSrc}/api`),
+      "@store": path.resolve(__dirname, `${paths.appSrc}/store`),
+      "@": path.resolve(__dirname, `${paths.appSrc}`)
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding

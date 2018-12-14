@@ -5,7 +5,7 @@ import {
   bindActionCreators
 } from 'redux';
 import {
-  Switch,
+  // Switch,
   withRouter,
   Redirect
 } from 'react-router-dom';
@@ -13,17 +13,23 @@ import AuthRouter from '@components/AuthRouter/AuthRouter';
 import {
   connect
 } from 'react-redux';
+
+import {Icon} from 'antd';
+
 import {
   ASYNC_GET_USERINFO
-} from '@actions/user';
+} from '@store/actions/user';
 
 import {
   getToken
 } from '@utils/token';
 
 
+import PageLoading from '@components/PageLoading';
 import UserViews from '@/userViews';
 import AdminViews from '@/adminViews';
+
+const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
 @connect(
   storeState => {
@@ -44,9 +50,7 @@ class HasPermission extends Component {
       userInfo,
       history
     } = this.props;
-    if (JSON.stringify(userInfo) == "{}") {
-      dispatchAsync_get_userinfo(history);
-    }
+    if (JSON.stringify(userInfo) === "{}") dispatchAsync_get_userinfo(history);
   }
 
   displayWhichView = (token) => {
@@ -61,7 +65,7 @@ class HasPermission extends Component {
     else if (roleName == "ROLE_OPERATION") {
       return (<AuthRouter path = "/" Content={AdminViews} token={token}/>);
     } else {
-      return null
+      return <PageLoading fullpage indicator={antIcon}/>
     }
   }
 
@@ -75,9 +79,9 @@ class HasPermission extends Component {
     if (!!token) {
       getUserInfo();
       return (
-        <Switch>
-          {displayWhichView(token)}
-        </Switch>
+        // <Switch>
+          displayWhichView(token)
+        // </Switch>
       )
     } else {
       return <Redirect  to="/login" state={{from:props.location}}/>;

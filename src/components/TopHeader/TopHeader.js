@@ -1,0 +1,51 @@
+import React,{Component} from 'react';
+import NavHeader from '@components/NavHeader';
+import { Layout } from 'antd';
+import './TopHeader.scss';
+const { Header } = Layout;
+
+export default class HeaderBar extends Component{
+  state = {
+    topBarIsHide:true
+  }
+
+  componentDidMount(){
+    window.addEventListener('onload',this.handelSroll()); 
+  }
+
+  handelSroll= _ => {
+    let lastScrollTop = 0;
+    return window.addEventListener('scroll',()=>{
+      let st;
+      st = document.documentElement.scrollTop;
+      if (st > lastScrollTop) {
+        this.setState({
+          topBarIsHide:false
+        })
+      } else {
+        this.setState({
+          topBarIsHide:true
+        })
+      }
+      return lastScrollTop = st;
+    })
+  }
+
+  
+  componentWillUnmount(){
+    window.addEventListener('scroll',null);
+  }
+
+  getHeadWidth = () => {
+    return "100%";
+  }
+  render(){
+    const width = this.getHeadWidth();
+      const {topBarIsHide} = this.state;
+    return(
+      <Header style={{padding:0,width}} className={`fixedHeader scroll-hide ${topBarIsHide ? '' : 'closed'}`}>
+        <NavHeader {...this.props}/>
+      </Header>
+    )
+  }
+}

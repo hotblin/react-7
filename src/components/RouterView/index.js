@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Route ,  Switch , BrowserRouter as Router} from 'react-router-dom';
 import HasPermission from '@components/HasPermission/HasPermission';
-import Login from '@views/Login/Login';
+import Login from '@/views/Login/Login';
 
 class RouterView extends Component{
   render(){

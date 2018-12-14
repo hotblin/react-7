@@ -5,15 +5,12 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import imgUrl from '@static/image/login-blurry-bg.jpg';
 import logoUrl from '@static/image/login-logo.png';
 import {setToken} from '@utils/token';
-import {ASYNC_GET_USERINFO} from '@actions/user';
+import {ASYNC_GET_USERINFO} from '@store/actions/user';
 import {loginIn} from '@api';
 import './Login.scss';
 
 const FormItem = Form.Item;
-// @connect(
-//   state=>state.main,
-//   dispatch=>bindActionCreators(INCREMENT,dispatch)
-// )
+
 
 class LoginWrapper extends React.Component{
   state = {
@@ -42,7 +39,7 @@ class LoginWrapper extends React.Component{
               history.push('/');
             },200)
           }else{
-            
+
           }
         })
       }
@@ -101,11 +98,6 @@ class LoginWrapper extends React.Component{
     )
   }
 }
-// const mapStateToProps = (state) => {
-//   return {
-//     todoList: state.todoList
-//   }
-// }
 
 const mapDispatchToProps  = dispatch => {
   return bindActionCreators({

@@ -1,0 +1,16 @@
+.page-loading {
+  text-align: center;
+  padding-top: 100px;
+
+  &.full-page {
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .anticon.anticon-loading.ant-spin-dot {
+      font-size: 46px !important;
+    }
+  }
+}

@@ -19,8 +19,8 @@ export default class NavHeader extends Component {
         <div className="left">
           {/* 左部分logo */}
           <div className="logo" key="logo" id="logo">
-              <img src={logo} alt="logo"/>
-              <h1>Ant Design Pro</h1>
+            <img src={logo} alt="logo"/>
+            <h1>Ant Design Pro</h1>
           </div>
           {/* 左部分导航菜单 */}
           <div style={{maxWidth}}>
