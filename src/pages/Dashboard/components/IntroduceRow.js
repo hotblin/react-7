@@ -4,9 +4,9 @@ import React, {
 import {
   Card,
   Col,
-  Icon,
+  // Icon,
   Row,
-  Tooltip
+  // Tooltip
 } from 'antd';
 
 const topColResponsiveProps = {
@@ -15,11 +15,11 @@ const topColResponsiveProps = {
   md: 12,
   lg: 12,
   xl: 6,
-  style: { marginBottom: 24 },
+  style: { marginBottom: 50 },
 };
 
 const IntroduceRow = memo(({
-  visitData,
+  // visitData,
   loading
 }) => (
   <Row gutter={24}>

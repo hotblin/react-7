@@ -23,7 +23,7 @@ const ListA = function({
       <List className="list">
         {
           list.map((item,i) => {
-            console.log(item)
+            {/* console.log(item) */}
             return (
               <List.Item className="weidu" key={i}>
                  <List.Item.Meta description={

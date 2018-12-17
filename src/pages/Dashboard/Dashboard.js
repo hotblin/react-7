@@ -4,6 +4,7 @@ import PageLoading from "@components/PageLoading";
 import "./Dashboard.scss";
 
 const IntroduceRow = React.lazy(() => import("./components/IntroduceRow"));
+const GardCard = React.lazy(_ => import("./components/GardCard"));
 class Dashborad extends Component {
   render() {
     return (
@@ -12,7 +13,9 @@ class Dashborad extends Component {
           <Suspense fallback={<PageLoading />}>
             <IntroduceRow />
           </Suspense>
-          <Suspense />
+          <Suspense fallback={null}>
+            <GardCard />
+          </Suspense>
         </div>
       </Layout>
     );

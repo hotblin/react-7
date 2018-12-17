@@ -8,7 +8,7 @@ class WorkPlace extends Component{
     history.go(-1);
   }
   render(){
-    alert(1);
+    // alert(1);
     const backClick = this.backClick;
     return (
      <div>

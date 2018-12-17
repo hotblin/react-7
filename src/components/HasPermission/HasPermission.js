@@ -1,90 +1,59 @@
-import React, {
-  Component
-} from 'react';
-import {
-  bindActionCreators
-} from 'redux';
-import {
-  // Switch,
-  withRouter,
-  Redirect
-} from 'react-router-dom';
-import AuthRouter from '@components/AuthRouter/AuthRouter';
-import {
-  connect
-} from 'react-redux';
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { withRouter, Redirect } from "react-router-dom";
+import { Icon } from "antd";
+import { connect } from "react-redux";
 
-import {Icon} from 'antd';
-
-import {
-  ASYNC_GET_USERINFO
-} from '@store/actions/user';
-
-import {
-  getToken
-} from '@utils/token';
-
-
-import PageLoading from '@components/PageLoading';
-import UserViews from '@/userViews';
-import AdminViews from '@/adminViews';
+import AuthRouter from "@components/AuthRouter/AuthRouter";
+import PageLoading from "@components/PageLoading";
+import UserViews from "@/userViews";
+import AdminViews from "@/adminViews";
+import { getToken } from "@utils/token";
+import { ASYNC_GET_USERINFO } from "@store/actions/user";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
 @connect(
   storeState => {
-    return ({
+    return {
       userInfo: storeState.userInfo
-    })
+    };
   },
-  dispatch => bindActionCreators({
-    dispatchAsync_get_userinfo: ASYNC_GET_USERINFO
-  }, dispatch)
+  dispatch =>
+    bindActionCreators(
+      {
+        __async_get_userinfo: ASYNC_GET_USERINFO
+      },
+      dispatch
+    )
 )
 @withRouter
 class HasPermission extends Component {
-
   getUserInfo = () => {
-    const {
-      dispatchAsync_get_userinfo,
-      userInfo,
-      history
-    } = this.props;
-    if (JSON.stringify(userInfo) === "{}") dispatchAsync_get_userinfo(history);
-  }
+    const { __async_get_userinfo, userInfo, history } = this.props;
+    if (JSON.stringify(userInfo) === "{}") __async_get_userinfo(history);
+  };
 
-  displayWhichView = (token) => {
-    const {
-      userInfo
-    } = this.props;
-    const {
-      roleName
-    } = userInfo;
+  whichInterfaceBeDisplayed = token => {
+    const { userInfo } = this.props;
+    const { roleName } = userInfo;
     if (roleName == "ROLE_USER")
-      return(<AuthRouter path = "/" Content={UserViews} token={token} />);
+      return <AuthRouter path="/" Content={UserViews} token={token} />;
     else if (roleName == "ROLE_OPERATION") {
-      return (<AuthRouter path = "/" Content={AdminViews} token={token}/>);
+      return <AuthRouter path="/" Content={AdminViews} token={token} />;
     } else {
-      return <PageLoading fullpage indicator={antIcon}/>
+      return <PageLoading fullpage indicator={antIcon} />;
     }
-  }
+  };
 
   render() {
     const token = getToken();
-    const {
-      getUserInfo,
-      displayWhichView,
-      props
-    } = this;
+    const { getUserInfo, whichInterfaceBeDisplayed, props } = this;
     if (!!token) {
       getUserInfo();
-      return (
-        // <Switch>
-          displayWhichView(token)
-        // </Switch>
-      )
+      return whichInterfaceBeDisplayed(token);
     } else {
-      return <Redirect  to="/login" state={{from:props.location}}/>;
+      return <Redirect to="/login" state={{ from: props.location }} />;
     }
   }
 }
