@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import './index.scss';
+import './static/style/component.scss';
 import * as serviceWorker from './serviceWorker';
 import RouterView from '@components/RouterView';
 
