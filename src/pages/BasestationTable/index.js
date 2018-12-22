@@ -24,7 +24,7 @@ class BasestationTable extends Component {
 
   render() {
     const { pagination, searchKey } = this.state;
-
+    alert(1);
     return (
       <Layout className="layout-content">
         <PerPageHead />

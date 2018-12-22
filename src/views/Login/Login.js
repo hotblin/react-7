@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox,message } from 'antd';
 import imgUrl from '@static/image/login-blurry-bg.jpg';
 import logoUrl from '@static/image/login-logo.png';
 import {setToken} from '@utils/token';
@@ -10,6 +10,10 @@ import {loginIn} from '@api';
 import './Login.scss';
 
 const FormItem = Form.Item;
+const info = str => {
+  console.log(str);
+  message.info(str);
+};
 
 
 class LoginWrapper extends React.Component{
@@ -30,7 +34,9 @@ class LoginWrapper extends React.Component{
     this.props.form.validateFields((err, values) => {
       if (!err) {
         delete values.remember;
+        alert(101111);
         loginIn(values).then(res => {
+          console.log(res);
           if(res.status === 0){
             setToken(res.result);
             // 触发store获取用户信息
@@ -39,7 +45,9 @@ class LoginWrapper extends React.Component{
               history.push('/');
             },200)
           }else{
-
+            alert(100);
+            console.log(res.message);
+            info(res.message);
           }
         })
       }
