@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import { Layout } from "antd";
 import TopHeader from "@components/TopHeader/TopHeader";
 
@@ -10,4 +9,4 @@ const PerPage = props => (
   </Layout>
 );
 
-export default withRouter(PerPage);
+export default PerPage;

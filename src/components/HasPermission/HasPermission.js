@@ -37,9 +37,9 @@ class HasPermission extends Component {
   whichInterfaceBeDisplayed = token => {
     const { userInfo } = this.props;
     const { roleName } = userInfo;
-    if (roleName == "ROLE_USER")
+    if (roleName === "ROLE_USER")
       return <AuthRouter path="/" Content={UserViews} token={token} />;
-    else if (roleName == "ROLE_OPERATION") {
+    else if (roleName === "ROLE_OPERATION") {
       return <AuthRouter path="/" Content={AdminViews} token={token} />;
     } else {
       return <PageLoading fullpage indicator={antIcon} />;

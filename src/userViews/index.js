@@ -28,7 +28,8 @@ const setTitle = key => {
 @withRouter
 class UserViews extends Component {
   render() {
-    document.title = setTitle("title");
+    const {pathname} = this.props.location;
+    document.title = setTitle(pathname);
     return (
       <Switch>
         <Redirect from="/" to="/dashboard" exact />

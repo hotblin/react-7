@@ -3,33 +3,29 @@ import { Layout } from "antd";
 import BsSearch from "@/components/BsSearch";
 import BsTable from "@/components/BsTable";
 import PerPageHead from "@/components/PerPageHead";
+
 const style = {
   marginBottom: "20px"
 };
 class BasestationTable extends Component {
   state = {
-    pageInfo: {
-      total: 0,
-      page: 1,
-      loading: false
-    },
-    pagination: {},
+    currentPage: 1,
     searchKey: {}
   };
   handleSearch = params => {
     this.setState({
-      searchKey: params
+      searchKey: params,
+      currentPage: 1
     });
   };
 
   render() {
-    const { pagination, searchKey } = this.state;
-    alert(1);
+    const { currentPage, searchKey } = this.state;
     return (
       <Layout className="layout-content">
         <PerPageHead />
         <BsSearch style={style} submit={this.handleSearch} />
-        <BsTable pagination={pagination} searchKey={searchKey} />
+        <BsTable currentPage={currentPage} searchKey={searchKey} />
       </Layout>
     );
   }

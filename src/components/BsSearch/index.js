@@ -6,7 +6,6 @@ class BsSearchContent extends Component {
   state = {
     expand: false
   };
-  // To generate mock Form.Item
   getFields() {
     const count = this.state.expand ? 10 : 6;
     const { getFieldDecorator } = this.props.form;
@@ -32,7 +31,7 @@ class BsSearchContent extends Component {
 
   handleSearch = e => {
     e.preventDefault();
-    const {submit} = this.props;
+    const { submit } = this.props;
     this.props.form.validateFields((err, values) => {
       submit(values);
     });
@@ -62,7 +61,11 @@ class BsSearchContent extends Component {
               <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
                 Clear
               </Button>
-              <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggle}>
+              <a
+                href={null}
+                role="button"
+                style={{ marginLeft: 8, fontSize: 12 }}
+                onClick={this.toggle}>
                 更多 <Icon type={expand ? "up" : "down"} />
               </a>
             </Col>
