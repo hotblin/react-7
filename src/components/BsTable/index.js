@@ -17,7 +17,7 @@ class BsTable extends Component {
       this.setState(state, resolve);
     });
   };
-  
+
   onChange = async (pagination, filters, sorter) => {
     // console.log("params", pagination, filters, sorter);
     const { current } = pagination;

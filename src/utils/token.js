@@ -1,8 +1,7 @@
-import Cookies from 'js-cookie';
-export const getToken = () => !!Cookies.get('token') ? decodeURIComponent(Cookies.get('token')) : null;
+export const getToken = () =>
+  decodeURIComponent(sessionStorage.getItem("token"));
 
-export const setToken = token => {
-  Cookies.set('token', encodeURIComponent(token), {
-    expires: 7
-  });
-}
+export const setToken = token =>
+  sessionStorage.setItem("token", encodeURIComponent(token));
+
+export const removeToken = _ => sessionStorage.removeItem("token");

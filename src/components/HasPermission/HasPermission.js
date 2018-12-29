@@ -30,11 +30,13 @@ const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 @withRouter
 class HasPermission extends Component {
   getUserInfo = () => {
+    console.log(1111);
     const { __async_get_userinfo, userInfo, history } = this.props;
     if (JSON.stringify(userInfo) === "{}") __async_get_userinfo(history);
   };
 
-  whichInterfaceBeDisplayed = token => {
+  whichViewBeDisplay = token => {
+    console.log(222);
     const { userInfo } = this.props;
     const { roleName } = userInfo;
     if (roleName === "ROLE_USER")
@@ -48,11 +50,14 @@ class HasPermission extends Component {
 
   render() {
     const token = getToken();
-    const { getUserInfo, whichInterfaceBeDisplayed, props } = this;
+    const { getUserInfo, whichViewBeDisplay, props } = this;
+    console.log(token);
     if (!!token) {
+      console.log(!!token);
       getUserInfo();
-      return whichInterfaceBeDisplayed(token);
+      return whichViewBeDisplay(token);
     } else {
+
       return <Redirect to="/login" state={{ from: props.location }} />;
     }
   }

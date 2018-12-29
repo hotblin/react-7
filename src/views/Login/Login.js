@@ -7,7 +7,7 @@ import logoUrl from '@static/image/login-logo.png';
 import {setToken} from '@utils/token';
 import {ASYNC_GET_USERINFO} from '@store/actions/user';
 import {loginIn} from '@api';
-import './Login.scss';
+import '@/style/login.scss';
 
 const FormItem = Form.Item;
 const info = str => {

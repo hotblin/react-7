@@ -1,13 +1,11 @@
-import React, {
-  PureComponent
-} from 'react';
+import React, { PureComponent } from "react";
 
-import { Spin, Tag, Menu, Icon, Dropdown, Avatar, Tooltip } from 'antd';
+import { Menu, Icon, Dropdown, Avatar, Tooltip } from "antd";
 
-import Notice from './Notice';
+import Notice from "./Notice";
 
-export default class BaseRight extends PureComponent {
-  render(){
+export default class NavRightMenu extends PureComponent {
+  render() {
     const menu = (
       <Menu className="menu" selectedKeys={[]}>
         <Menu.Item key="userCenter">
@@ -29,34 +27,32 @@ export default class BaseRight extends PureComponent {
         </Menu.Item>
       </Menu>
     );
-    return(
-      <div className="right">
-
+    return (
+      <div className="nav-right-menu float-right">
         <Tooltip title="使用文档">
           <a
             target="_blank"
             href="https://pro.ant.design/docs/getting-started"
             rel="noopener noreferrer"
-            className="action"
-          >
+            className="action">
             <Icon type="question-circle-o" />
           </a>
         </Tooltip>
-        
-        <Notice className="action"/>
+
+        <Notice className="action" />
 
         <Dropdown overlay={menu}>
-            <span className="action account">
-              <Avatar
-                size="small"
-                className="avatar"
-                src='https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'
-                alt="avatar"
-              />
-              <span className="name">Serati Ma</span>
-            </span>
-          </Dropdown>
+          <span className="action account">
+            <Avatar
+              size="small"
+              className="avatar"
+              src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+              alt="avatar"
+            />
+            <span className="name">Serati Ma</span>
+          </span>
+        </Dropdown>
       </div>
-    )
+    );
   }
 }

@@ -42,6 +42,7 @@ export function* incrementAsync(action) {
 }
 
 export function* fetchUser(action) {
+  
   const {
     payload
   } = action;
@@ -53,6 +54,7 @@ export function* fetchUser(action) {
         payload: res.data
       })
     } else {
+      console.log(res);
       payload.replace('/login');
     }
   } catch (e) {

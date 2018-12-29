@@ -1,6 +1,8 @@
 import axios from "axios";
+
 import { getToken } from "@utils/token";
 
+axios.defaults.withCredentials = false;
 const env = process.env.NODE_ENV;
 const ip =
   env === "development"
@@ -16,14 +18,22 @@ axios.interceptors.request.use(
     return config;
   },
   error => {
+    console.log("请求时出错", error);
     return Promise.reject(error);
   }
 );
 
-axios.defaults.withCredentials = false;
+axios.interceptors.response.use(
+  response => {
+    return response;
+  },
+  error => {
+    console.log("响应时出错", error);
+    return Promise.reject(error);
+  }
+);
 
 export const getUserInfo = params => {
-  // console.log(params);
   return axios.get(`${ip}/user/me`).then(res => res.data);
 };
 
@@ -32,7 +42,6 @@ export const loginIn = params => {
 };
 
 export const getBaseStationList = params => {
-  // http://123.59.136.8:8723/api/baseStation?page=1&baseName=&ok=0&size=15
   return axios
     .get(`${ip}/api/baseStation`, {
       params

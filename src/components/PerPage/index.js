@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
-import TopHeader from "@components/TopHeader/TopHeader";
+import TopHeader from "@components/TopHeader";
 
 const PerPage = props => (
   <Layout className="perpage-container" style={{ minHeight: "100vh" }}>
