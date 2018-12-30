@@ -1,4 +1,5 @@
 @import './var.scss';
+
 .fixed-header {
   position: fixed;
   top: 0;
@@ -8,6 +9,7 @@
   border: 0;
   padding: 0;
   transition: all 0.3s;
+
   &.scroll-hide {
     &.closed {
       top: -64px;
@@ -26,6 +28,7 @@
   padding-left: 10px;
   padding-right: 25px;
   box-sizing: border-box;
+
   .navbar-container {
     margin: 0 auto;
     height: 100%;
@@ -35,6 +38,7 @@
     margin-left: auto;
     display: flex;
     justify-content: space-between;
+
     .navbar-title {
       padding-left: 35px;
       text-align: left;
@@ -47,6 +51,7 @@
       line-height: 64px;
       overflow: hidden;
       height: auto;
+
       h1 {
         display: inline-block;
         font-size: 20px;
@@ -54,26 +59,40 @@
         margin: 0;
       }
     }
+
     .navbar-menu {
+
       // 修改ant的导航栏
       .ant-menu {
         &.nav-menu-custom {
           background-color: transparent;
           color: #fff;
           overflow: hidden;
+
           &.ant-menu-horizontal {
             line-height: 1;
           }
+
+          >.ant-menu-item {
+            top: 1px;
+            margin-top: -1px;
+            border-bottom: 2px solid transparent;
+            padding: 8px 20px;
+          }
+
           li.ant-menu-item {
             height: 64px;
           }
+
           .ant-menu-submenu.ant-menu-submenu-horizontal {
             height: 100%;
+
             .ant-menu-submenu-title {
               height: 100%;
               padding: 8px 20px;
             }
           }
+
           &.ant-menu-horizontal>.ant-menu-item:hover,
           &.ant-menu-horizontal>.ant-menu-submenu:hover,
           &.ant-menu-horizontal>.ant-menu-item-active,
@@ -86,6 +105,7 @@
             color: #fff;
             border: 0 none;
           }
+
           .ant-menu-item:hover,
           .ant-menu-item-active,
           .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
@@ -96,6 +116,7 @@
         }
       }
     }
+
     .nav-right-menu {
       .action {
         cursor: pointer;
@@ -104,16 +125,20 @@
         transition: all 0.3s;
         height: 100%;
         color: $text-color;
+
         >i {
           vertical-align: middle;
         }
+
         &:hover {
           background: red;
         }
+
         &.ant-popover-open {
           background: red;
         }
       }
+
       .account {
         .avatar {
           margin: 20px 8px 20px 0;
@@ -138,6 +163,7 @@
 
 .popover {
   width: 336px;
+
   .ant-popover-inner-content {
     padding: 5px;
   }
@@ -146,6 +172,7 @@
 .tabs {
   &.ant-tabs-nav-scroll {
     text-align: center;
+
     .ant-tabs-bar {
       margin-bottom: 4px;
     }
@@ -156,6 +183,7 @@
   text-align: center;
   padding: 73px 0 88px 0;
   color: red;
+
   img {
     display: inline-block;
     margin-bottom: 16px;
@@ -166,44 +194,55 @@
 .list {
   max-height: 400px;
   overflow: auto;
+
   .item {
     transition: all 0.3s;
     overflow: hidden;
     cursor: pointer;
     padding-left: 24px;
     padding-right: 24px;
+
     .meta {
       width: 100%;
     }
+
     .avatar {
       background: #fff;
       margin-top: 4px;
     }
+
     .iconElement {
       font-size: 32px;
     }
+
     &.read {
       opacity: 0.4;
     }
+
     &:last-child {
       border-bottom: 0;
     }
+
     &:hover {
       background: red;
     }
+
     .title {
       font-weight: normal;
       margin-bottom: 8px;
     }
+
     .description {
       font-size: 12px;
       line-height: 1;
     }
+
     .datetime {
       font-size: 12px;
       margin-top: 4px;
       line-height: 1;
     }
+
     .extra {
       float: right;
       color: red;

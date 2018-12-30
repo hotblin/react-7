@@ -1,16 +1,20 @@
 import React, {
-  Component
+  Component,Suspense
 } from 'react';
-
-
-
+import { Layout } from "antd";
+import ContentHeader from '@/components/ContentHeader'
+import ListCard from './ListCard';
 export default class TableList extends Component {
   render(){
-    console.log("tablelist")
     return (
-      <h1 style={{marginTop:'88px'}}>
-        tablelist
-      </h1>
+      <Layout className="layout-content nomargin">
+          <ContentHeader/>
+          <div className="content-wrapper">
+            <Suspense fallback={null}>
+              <ListCard />
+            </Suspense>
+          </div>
+      </Layout>
     )
   }
 }

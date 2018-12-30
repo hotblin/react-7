@@ -5,10 +5,9 @@ import RouterView from "@components/RouterView";
 import store from "@store";
 import "@/style/reset.scss";
 import "@/style/common.scss";
+import "@/style/pages.scss";
 import "@/style/lib/font-awesome/css/font-awesome.min.css";
 import * as serviceWorker from "./serviceWorker";
-
-
 
 const Root = document.getElementById("root");
 

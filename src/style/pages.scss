@@ -1,0 +1,120 @@
+.perpage-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.layout-content {
+  box-sizing: border-box;
+  margin: 24px 24px 0px;
+  padding-top: 64px;
+  background-color: #f4f6f9;
+  &.nopadding {
+    padding-top: 0;
+  }
+
+  &.nomargin {
+    margin: 0;
+  }
+
+  .content-header {
+    padding: 15px 25px;
+    line-height: 1;
+
+    .content-header-left {
+      h1 {
+        color: #000;
+        margin: 0;
+        font-size: 28px;
+      }
+    }
+
+    .content-header-right {
+      text-align: right;
+    }
+  }
+
+  .content-wrapper {
+    padding: 0 25px;
+
+    .list-card {
+
+      .small-box {
+        border-radius: .25rem;
+        box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+        position: relative;
+        display: block;
+        &:hover{
+          >.icon{
+            font-size: 95px;
+          }
+        }
+        >.inner {
+          padding: 10px;
+
+          h3 {
+            font-size: 38px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            padding: 0;
+          }
+
+          p {
+            font-size: 15px;
+          }
+        }
+
+        >.icon {
+          transition: all .3s linear;
+          position: absolute;
+          top: -10px;
+          right: 10px;
+          z-index: 0;
+          font-size: 90px;
+          color: rgba(0, 0, 0, .15);
+        }
+
+        >.small-box-footer {
+          position: relative;
+          text-align: center;
+          padding: 3px 0;
+          color: #fff;
+          color: rgba(255, 255, 255, .8);
+          display: block;
+          z-index: 10;
+          background: rgba(0, 0, 0, .1);
+          text-decoration: none;
+        }
+
+        &.bg-info {
+          background-color: #17a2b8;
+        }
+        &.bg-success{
+          background-color: #28a745;
+        }
+        &.bg-warning{
+          background-color: #ffc107;
+        }
+        &.bg-danger{
+          background-color: #dc3545;
+        }
+      }
+    }
+  }
+
+  .content-wide {
+    margin: 0px auto;
+    width: 100%; // max-width: 1200px;
+  }
+
+  .chart-box-head {
+    padding: 10px; // background-color: red;
+  }
+
+  .chart-box-footer {
+    border-top: 1px solid #e8e8e8;
+    padding-top: 9px;
+    margin-top: 8px;
+  }
+}

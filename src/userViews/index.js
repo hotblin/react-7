@@ -7,7 +7,6 @@ import BasestationTable from "@/pages/BasestationTable";
 
 import React, { Component } from "react";
 import { Redirect, Route, Switch, withRouter } from "react-router-dom";
-import "./index.scss";
 
 const renderPerPage = (props, Component) => {
   return (

@@ -1,5 +1,6 @@
 import React ,{Component}from 'react';
 import {withRouter} from 'react-router-dom'
+import { Layout } from "antd";
 
 @withRouter
 class WorkPlace extends Component{
@@ -8,13 +9,12 @@ class WorkPlace extends Component{
     history.go(-1);
   }
   render(){
-    // alert(1);
     const backClick = this.backClick;
     return (
-     <div>
+     <Layout className="layout-content haspadding nomargin">
         <button onClick={backClick}>返回</button>
         <h1>fullpage</h1>
-     </div>
+     </Layout>
     )
   }
 }

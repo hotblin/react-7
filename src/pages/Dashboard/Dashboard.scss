@@ -66,23 +66,7 @@
   }
 }
 
-.layout-content {
-  box-sizing: border-box;
-  margin: 24px 24px 0px;
-  padding-top: 64px;
-  .content-wide {
-    margin: 0px auto;
-    width: 100%; // max-width: 1200px;
-  }
-  .chart-box-head {
-    padding: 10px; // background-color: red;
-  }
-  .chart-box-footer {
-    border-top: 1px solid #e8e8e8;
-    padding-top: 9px;
-    margin-top: 8px;
-  }
-}
+
 
 .gard-card-container {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);

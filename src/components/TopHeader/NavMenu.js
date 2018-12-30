@@ -25,6 +25,11 @@ class NavMenu extends PureComponent {
         onClick={menuBeClick}
         defaultOpenKeys={["1"]}
         className="nav-menu-custom float-left">
+        <Menu.Item key="mail">
+          <span className="isblock">
+            <Icon type="mail" />Navigation One
+          </span>
+        </Menu.Item>
         <SubMenu
           key="1"
           className="memememe"
