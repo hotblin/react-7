@@ -1,3 +1,6 @@
+import React, { Component } from "react";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
+
 import PerPage from "@/components/PerPage";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import FormCustom from "@/pages/FormCustom/FormCustom";
@@ -5,16 +8,13 @@ import TableList from "@/pages/TableList/TableList";
 import WorkPlace from "@/pages/WorkPlace";
 import BasestationTable from "@/pages/BasestationTable";
 
-import React, { Component } from "react";
-import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 
-const renderPerPage = (props, Component) => {
-  return (
-    <PerPage>
-      <Component {...props} />
-    </PerPage>
-  );
-};
+const renderPerPage = (props, Component) => (
+  <PerPage>
+    <Component {...props} />
+  </PerPage>
+);
+
 
 const NotFound = () => {
   return <h2>404</h2>;

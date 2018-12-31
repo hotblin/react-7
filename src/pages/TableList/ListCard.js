@@ -18,7 +18,6 @@ const ListCard = memo(() => {
         <div className="small-box bg-info">
           <div className="inner">
                 <h3>150</h3>
-
                 <p>New Orders</p>
               </div>
               <div className="icon">

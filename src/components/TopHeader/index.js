@@ -33,6 +33,11 @@ export default class HeaderBar extends Component {
 
   componentWillUnmount() {
     window.addEventListener("scroll", null);
+
+    // 清空setState
+     this.setState = (state,callback)=>{
+      return;
+    };
   }
 
   getHeadWidth = () => {

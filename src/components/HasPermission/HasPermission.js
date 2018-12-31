@@ -3,7 +3,6 @@ import { bindActionCreators } from "redux";
 import { withRouter, Redirect } from "react-router-dom";
 import { Icon } from "antd";
 import { connect } from "react-redux";
-
 import AuthRouter from "@components/AuthRouter/AuthRouter";
 import PageLoading from "@components/PageLoading";
 import UserViews from "@/userViews";
@@ -29,10 +28,10 @@ const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 )
 @withRouter
 class HasPermission extends Component {
-  getUserInfo = () => {
+  getUserInfo = (token) => {
     console.log(1111);
     const { __async_get_userinfo, userInfo, history } = this.props;
-    if (JSON.stringify(userInfo) === "{}") __async_get_userinfo(history);
+    if (JSON.stringify(userInfo) === "{}" && token) __async_get_userinfo(history);
   };
 
   whichViewBeDisplay = token => {
@@ -47,18 +46,21 @@ class HasPermission extends Component {
       return <PageLoading fullpage indicator={antIcon} />;
     }
   };
+  componentWillReceiveProps(){
+
+  }
 
   render() {
+    const {location} = this.props;
     const token = getToken();
-    const { getUserInfo, whichViewBeDisplay, props } = this;
+    const { getUserInfo, whichViewBeDisplay } = this;
     console.log(token);
     if (!!token) {
       console.log(!!token);
-      getUserInfo();
+      getUserInfo(token);
       return whichViewBeDisplay(token);
     } else {
-
-      return <Redirect to="/login" state={{ from: props.location }} />;
+      return <Redirect to="/login" state={{ from: location }} />;
     }
   }
 }
