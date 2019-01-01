@@ -1,14 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
 import { Form, Icon, Input, Button, Checkbox,message } from 'antd';
 import imgUrl from '@static/image/login-blurry-bg.jpg';
 import logoUrl from '@static/image/login-logo.png';
 import {setToken} from '@utils/token';
 import {ASYNC_GET_USERINFO} from '@store/actions/user';
+// import '@/static/jslib/vector';
 import {loginIn} from '@api';
 import '@/style/login.scss';
-
+var Victor = require('victor');
 const FormItem = Form.Item;
 const info = str => {
   message.error(str);
@@ -51,6 +53,8 @@ class LoginWrapper extends React.Component{
   }
 
   componentDidMount(){
+    // var vec = new Victor(42, 1337);
+     Victor("container", "output"); 
     setTimeout(()=>{
       this.toggleActive(true);
     },200)
@@ -61,7 +65,8 @@ class LoginWrapper extends React.Component{
     const {active} = this.state;
 
     return (
-      <div className="login-wrapper" style={{backgroundImage: 'url('+imgUrl+')'}}>
+      <div id="container" className="login-wrapper" style={{backgroundImage: 'url('+imgUrl+')'}}>
+        <div id="output" className="login-bg" ref="ref-login-bg"></div>
         <div className={`login-container ${active ? 'active':''}`}>
           <a href="">
             <img src={logoUrl} alt="seven" width="100" height="30"/>
