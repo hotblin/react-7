@@ -6,6 +6,7 @@ const url = require('url');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
+// process.cwd() 当前执行node命令时候的文件夹目录，保证了文件在不同的目录下执行时，路径始终不变
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 

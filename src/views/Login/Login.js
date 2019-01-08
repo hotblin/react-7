@@ -9,8 +9,9 @@ import {setToken} from '@utils/token';
 import {ASYNC_GET_USERINFO} from '@store/actions/user';
 // import '@/static/jslib/vector';
 import {loginIn} from '@api';
-import '@/style/login.scss';
-var Victor = require('victor');
+import styles from '@/style/login.scss';
+console.log(styles);
+// var Victor = require('victor');
 const FormItem = Form.Item;
 const info = str => {
   message.error(str);
@@ -54,7 +55,7 @@ class LoginWrapper extends React.Component{
 
   componentDidMount(){
     // var vec = new Victor(42, 1337);
-     Victor("container", "output"); 
+    //  Victor("container", "output"); 
     setTimeout(()=>{
       this.toggleActive(true);
     },200)

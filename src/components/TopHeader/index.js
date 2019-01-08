@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import NavHeader from "./NavHeader";
 import { Layout } from "antd";
-import "@/style/navbar.scss";
+import styles from "@/style/navbar.scss";
 const { Header } = Layout;
-
+console.log(styles);
 export default class HeaderBar extends Component {
   state = {
     topBarIsHide: true
@@ -35,6 +35,7 @@ export default class HeaderBar extends Component {
     window.addEventListener("scroll", null);
 
     // 清空setState
+    // 如果有未完成的setState异步任务
      this.setState = (state,callback)=>{
       return;
     };

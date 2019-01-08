@@ -309,7 +309,8 @@ module.exports = {
             test: sassRegex,
             exclude: sassModuleRegex,
             use: getStyleLoaders({
-              importLoaders: 2
+              importLoaders: 2,
+              //  modules: true
             }, 'sass-loader'),
           },
           // Adds support for CSS Modules, but using SASS

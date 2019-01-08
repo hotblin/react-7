@@ -27,7 +27,8 @@ class NavMenu extends PureComponent {
         className="nav-menu-custom float-left">
         <Menu.Item key="mail">
           <span className="isblock">
-            <Icon type="mail" />Navigation One
+            <Icon type="mail" />
+            Navigation One
           </span>
         </Menu.Item>
         <SubMenu
@@ -39,7 +40,9 @@ class NavMenu extends PureComponent {
               <span>Dashboard</span>
             </span>
           }>
-          <Menu.Item className="fdfdsfsdfsd" key="/dashboard">分析页</Menu.Item>
+          <Menu.Item className="fdfdsfsdfsd" key="/dashboard">
+            分析页
+          </Menu.Item>
           <Menu.Item key="/report/workplace">fullpage页面</Menu.Item>
           <Menu.Item key="/dashboard/workplace">工作台</Menu.Item>
         </SubMenu>
