@@ -9,8 +9,7 @@ import {setToken} from '@utils/token';
 import {ASYNC_GET_USERINFO} from '@store/actions/user';
 // import '@/static/jslib/vector';
 import {loginIn} from '@api';
-import styles from '@/style/login.scss';
-console.log(styles);
+import '@/style/login.scss';
 // var Victor = require('victor');
 const FormItem = Form.Item;
 const info = str => {

@@ -28,14 +28,14 @@ const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 )
 @withRouter
 class HasPermission extends Component {
-  getUserInfo = (token) => {
-    console.log(1111);
+  getUserInfo = token => {
     const { __async_get_userinfo, userInfo, history } = this.props;
-    if (JSON.stringify(userInfo) === "{}" && token) __async_get_userinfo(history);
+    if (JSON.stringify(userInfo) === "{}" && token) {
+      __async_get_userinfo(history);
+    }
   };
 
   whichViewBeDisplay = token => {
-    console.log(222);
     const { userInfo } = this.props;
     const { roleName } = userInfo;
     if (roleName === "ROLE_USER")
@@ -46,17 +46,14 @@ class HasPermission extends Component {
       return <PageLoading fullpage indicator={antIcon} />;
     }
   };
-  componentWillReceiveProps(){
-
-  }
+  componentDidMount() {}
+  componentWillReceiveProps() {}
 
   render() {
-    const {location} = this.props;
+    const { location } = this.props;
     const token = getToken();
     const { getUserInfo, whichViewBeDisplay } = this;
-    console.log(token);
     if (!!token) {
-      console.log(!!token);
       getUserInfo(token);
       return whichViewBeDisplay(token);
     } else {

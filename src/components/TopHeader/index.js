@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import NavHeader from "./NavHeader";
 import { Layout } from "antd";
-import styles from "@/style/navbar.scss";
+import  "@/style/navbar.scss";
 const { Header } = Layout;
-console.log(styles);
 export default class HeaderBar extends Component {
   state = {
     topBarIsHide: true
