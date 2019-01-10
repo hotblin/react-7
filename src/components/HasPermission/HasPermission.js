@@ -21,7 +21,7 @@ const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
   dispatch =>
     bindActionCreators(
       {
-        __async_get_userinfo: ASYNC_GET_USERINFO
+        asyncGetsUserInfor: ASYNC_GET_USERINFO
       },
       dispatch
     )
@@ -29,10 +29,8 @@ const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 @withRouter
 class HasPermission extends Component {
   getUserInfo = token => {
-    const { __async_get_userinfo, userInfo, history } = this.props;
-    if (JSON.stringify(userInfo) === "{}" && token) {
-      __async_get_userinfo(history);
-    }
+    const { asyncGetsUserInfor, userInfo, history } = this.props;
+    if (JSON.stringify(userInfo) === "{}" && token) asyncGetsUserInfor(history);
   };
 
   whichViewBeDisplay = token => {
@@ -46,6 +44,7 @@ class HasPermission extends Component {
       return <PageLoading fullpage indicator={antIcon} />;
     }
   };
+
   componentDidMount() {}
   componentWillReceiveProps() {}
 

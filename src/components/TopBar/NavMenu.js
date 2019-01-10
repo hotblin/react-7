@@ -23,12 +23,12 @@ class NavMenu extends PureComponent {
         style={{ style }}
         mode={mode}
         onClick={menuBeClick}
-        defaultOpenKeys={["1"]}
+        // defaultOpenKeys={["1"]}
         className="nav-menu-custom float-left">
-        <Menu.Item key="mail">
+        <Menu.Item key="/email">
           <span className="isblock">
             <Icon type="mail" />
-            Navigation One
+            Email
           </span>
         </Menu.Item>
         <SubMenu

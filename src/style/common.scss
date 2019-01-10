@@ -16,3 +16,27 @@
   height: 0;
   clear: both;
 }
+
+.in-page-search {
+  >.ant-advanced-search-form .ant-form-item {
+    margin-bottom: 0;
+  }
+}
+
+.bottom-border {
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.ant-layout {
+  background-color: #fff;
+}
+
+.table-box{
+  .ant-table-wrapper{
+    .ant-pagination.ant-table-pagination{
+      margin: 16px;
+    }
+  }
+}

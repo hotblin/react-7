@@ -3,24 +3,27 @@
   box-sizing: border-box;
 }
 
-
 .layout-content {
   box-sizing: border-box;
   margin: 24px 24px 0px;
   padding-top: 64px;
-  background-color: #f4f6f9;
+  // background-color: #f4f6f9;
   &.nopadding {
     padding-top: 0;
   }
-
   &.nomargin {
     margin: 0;
   }
-
+  .query-search-box {
+    box-sizing: border-box;
+    padding: 10px 20px;
+  }
+  .query-table-box{
+  
+  }
   .content-header {
     padding: 15px 25px;
     line-height: 1;
-
     .content-header-left {
       h1 {
         color: #000;
@@ -28,30 +31,25 @@
         font-size: 28px;
       }
     }
-
     .content-header-right {
       text-align: right;
     }
   }
-
   .content-wrapper {
     padding: 0 25px;
-
     .list-card {
-
       .small-box {
         border-radius: .25rem;
         box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
         position: relative;
         display: block;
-        &:hover{
-          >.icon{
+        &:hover {
+          >.icon {
             font-size: 95px;
           }
         }
         >.inner {
           padding: 10px;
-
           h3 {
             font-size: 38px;
             font-weight: 700;
@@ -59,12 +57,10 @@
             white-space: nowrap;
             padding: 0;
           }
-
           p {
             font-size: 15px;
           }
         }
-
         >.icon {
           transition: all .3s linear;
           position: absolute;
@@ -74,7 +70,6 @@
           font-size: 90px;
           color: rgba(0, 0, 0, .15);
         }
-
         >.small-box-footer {
           position: relative;
           text-align: center;
@@ -86,38 +81,34 @@
           background: rgba(0, 0, 0, .1);
           text-decoration: none;
         }
-
         &.bg-info {
           background-color: #17a2b8;
         }
-        &.bg-success{
+        &.bg-success {
           background-color: #28a745;
         }
-        &.bg-warning{
+        &.bg-warning {
           background-color: #ffc107;
         }
-        &.bg-danger{
+        &.bg-danger {
           background-color: #dc3545;
         }
       }
     }
-    .sale-card{
-      .box{
+    .sale-card {
+      .box {
         height: 300px;
         background-color: red;
       }
     }
   }
-
   .content-wide {
     margin: 0px auto;
     width: 100%; // max-width: 1200px;
   }
-
   .chart-box-head {
     padding: 10px; // background-color: red;
   }
-
   .chart-box-footer {
     border-top: 1px solid #e8e8e8;
     padding-top: 9px;

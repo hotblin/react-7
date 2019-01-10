@@ -48,3 +48,12 @@ export const getBaseStationList = params => {
     })
     .then(res => res.data);
 };
+
+
+export const getBasestationList = params => {
+  return axios
+    .get(`${ip}/api/baseStation`, {
+      params
+    })
+    .then(res => res.data);
+};
