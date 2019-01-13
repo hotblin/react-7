@@ -14,6 +14,9 @@ class NavMenu extends PureComponent {
     const { history } = this.props;
     history.push(key);
   };
+  selectedKeys = () =>{
+    return [this.props.location.pathname]
+  }
   render() {
     const { style } = this.props;
     const { mode } = this.state;
@@ -23,7 +26,7 @@ class NavMenu extends PureComponent {
         style={{ style }}
         mode={mode}
         onClick={menuBeClick}
-        // defaultOpenKeys={["1"]}
+        selectedKeys={this.selectedKeys()}
         className="nav-menu-custom float-left">
         <Menu.Item key="/email">
           <span className="isblock">
