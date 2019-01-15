@@ -5,8 +5,8 @@ import { Icon } from "antd";
 import { connect } from "react-redux";
 import AuthRouter from "@components/AuthRouter/AuthRouter";
 import PageLoading from "@components/PageLoading";
-import UserViews from "@/userViews";
-import AdminViews from "@/adminViews";
+import UserViews from "@/views/UserView";
+import AdminViews from "@/views/AdminView";
 import { getToken } from "@utils/token";
 import { ASYNC_GET_USERINFO } from "@store/actions/user";
 

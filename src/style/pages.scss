@@ -6,8 +6,7 @@
 .layout-content {
   box-sizing: border-box;
   margin: 24px 24px 0px;
-  padding-top: 64px;
-  // background-color: #f4f6f9;
+  padding-top: 64px; // background-color: #f4f6f9;
   &.nopadding {
     padding-top: 0;
   }
@@ -18,8 +17,9 @@
     box-sizing: border-box;
     padding: 10px 20px;
   }
-  .query-table-box{
-  
+  .query-table-box {
+    background-image: linear-gradient(to right top, #ffcc00 50%, #eee 50%);
+    background-repeat: no-repeat;
   }
   .content-header {
     padding: 15px 25px;

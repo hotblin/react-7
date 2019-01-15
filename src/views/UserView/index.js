@@ -7,7 +7,7 @@ import FormCustom from "@/pages/FormCustom/FormCustom";
 import TableList from "@/pages/TableList/TableList";
 import WorkPlace from "@/pages/WorkPlace";
 import BasestationTable from "@/pages/BasestationTable";
-import Email from "@/userViews/Email/Email";
+import Email from "./Email/Email";
 import QueryList from "./QueryList/QueryList";
 
 const NotFound = () => {

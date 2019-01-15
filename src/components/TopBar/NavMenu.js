@@ -24,6 +24,7 @@ class NavMenu extends PureComponent {
         mode={mode}
         onClick={menuBeClick}
         // defaultOpenKeys={["1"]}
+        defaultSelectedKeys={["/dashboard"]}
         className="nav-menu-custom float-left">
         <Menu.Item key="/email">
           <span className="isblock">

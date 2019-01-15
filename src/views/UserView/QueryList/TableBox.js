@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Divider, Tag, Button } from "antd";
+import { Table, Tag, Button } from "antd";
 import moment from "moment";
 const generatedColumns = self => {
   return [
@@ -41,8 +41,8 @@ const generatedColumns = self => {
           const linkArray = linkPhone.split(",");
           return (
             <span>
-              {linkArray.map(t => (
-                <Tag>{t}</Tag>
+              {linkArray.map((t, i) => (
+                <Tag key={i}>{t}</Tag>
               ))}
             </span>
           );
@@ -62,25 +62,16 @@ const generatedColumns = self => {
       title: "操作",
       key: "action",
       align: "center",
-      render: (text, record, index) => {
+      render: (record) => {
         return (
           <span>
             <Button
               size="small"
               type="primary"
               onClick={() => {
-                self.onEdit(record);
+                self.toDetail(record);
               }}>
-              编辑
-            </Button>
-            <Divider type="vertical" />
-            <Button
-              size="small"
-              type="danger"
-              onClick={() => {
-                self.onDelete(text.id);
-              }}>
-              删除
+              基站详情
             </Button>
           </span>
         );
@@ -94,11 +85,9 @@ export default class TableBox extends Component {
     const { current } = pagination;
     this.props.onChange(current);
   };
-  onDelete = id => {
-    this.props.onDelete(id);
-  };
-  onEdit = params => {
-    this.props.onEdit(params);
+ 
+  toDetail = params => {
+    this.props.toDetail(params);
   };
   render() {
     const { data, loading, total, pageSize, currentPage } = this.props;

@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { Layout, Row, Col } from "antd";
+import { withRouter } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import TableBox from "./TableBox";
 import { getBasestationList } from "@/api";
@@ -10,7 +11,10 @@ const topColResponsiveProps = {
   lg: 24,
   xl: 24
 };
-export default class QueryList extends PureComponent {
+
+export default
+@withRouter
+class QueryList extends PureComponent {
   state = {
     response: {},
     currentPage: 1,
@@ -26,12 +30,7 @@ export default class QueryList extends PureComponent {
     this.setState({ params });
     this.getInfo(params);
   };
-  onDelete = id => {
-    const currentPage = 1;
-    console.log(id);
-    this.getInfo({ currentPage });
-  };
-  onEdit = params => {
+  toDetail = params => {
     console.log(JSON.stringify(params));
     const { currentPage } = this.state;
     this.getInfo({ currentPage });
@@ -60,7 +59,7 @@ export default class QueryList extends PureComponent {
     const total = this.state.response.total;
     const loading = this.state.loading;
     const currentPage = this.state.currentPage;
-    const { onDelete, onEdit } = this;
+    const { toDetail } = this;
     return (
       <Layout className="layout-content nomargin">
         <Row>
@@ -73,8 +72,7 @@ export default class QueryList extends PureComponent {
             <TableBox
               pageSize={pageSize}
               onChange={this.onChange}
-              onDelete={onDelete}
-              onEdit={onEdit}
+              toDetail={toDetail}
               data={this.state.response}
               loading={loading}
               total={total}
