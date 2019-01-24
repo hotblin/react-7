@@ -34,7 +34,8 @@ export default class NavRightMenu extends PureComponent {
             target="_blank"
             href="https://pro.ant.design/docs/getting-started"
             rel="noopener noreferrer"
-            className="action">
+            className="action"
+          >
             <Icon type="question-circle-o" />
           </a>
         </Tooltip>

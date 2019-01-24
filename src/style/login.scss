@@ -4,7 +4,6 @@
   position: relative;
   min-height: 100vh;
   transition: all .5s;
-
   .login-bg {
     position: absolute;
     left: 0;
@@ -14,7 +13,6 @@
     width: 100%;
     height: 100%;
   }
-
   .login-container {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 40px;
@@ -31,34 +29,26 @@
     -webkit-transition: all 1s 0.5s;
     -moz-transition: all 1s 0.5s;
     transition: all 1s 0.5s;
-
     .login-form {
       text-align: left;
     }
-
     .login-form-forgot {
       float: right;
     }
-
     .login-form-button {
       width: 100%;
     }
-
     .text-center {
       text-align: left;
     }
-
     &.active {
       opacity: 1;
     }
-
     img {
       margin: 10px auto 30px;
     }
-
     .form-group {
       position: relative;
-
       input.form-control {
         height: 48px;
         font-size: 15px;
@@ -71,13 +61,35 @@
         background: transparent;
       }
     }
-
     .form-options {
       margin: 20px 0 10px;
-
       .checkbox {
         display: inline-block;
       }
+    }
+  }
+}
+
+.login-wrapper2 {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  .login-trapezoid {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    font-size: 30px;
+    transform: rotate(180deg);
+    width: 54%;
+    padding-left: 5px;
+    border-width: 0 0 100vh 293px;
+    border-style: none solid solid;
+    border-color: transparent transparent #3a20ad;
+    border-image: url("../style/images/登录.png") rounded;
+    .login-trapezoid{
+
     }
   }
 }
