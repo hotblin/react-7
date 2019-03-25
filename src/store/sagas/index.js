@@ -70,7 +70,7 @@ function* watchIncrementAsync() {
 }
 
 // 在这里监听 ASYNC_GET_USERINFO action
-export function* watchFetchUser() {
+function* watchFetchUser() {
   yield takeEvery("ASYNC_GET_USERINFO", fetchUser)
 }
 

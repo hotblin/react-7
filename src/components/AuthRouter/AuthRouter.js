@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Redirect, withRouter } from "react-router-dom";
+import React from "react"
+import { Route, Redirect, withRouter } from "react-router-dom"
 
 const AuthRouter = ({ Content, token, ...params }) => {
   return (
@@ -10,10 +10,10 @@ const AuthRouter = ({ Content, token, ...params }) => {
           <Content {...props} />
         ) : (
           <Redirect to="/login" state={{ from: props.location }} />
-        );
+        )
       }}
     />
-  );
-};
+  )
+}
 
-export default withRouter(AuthRouter);
+export default withRouter(AuthRouter)
