@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9efbc71a-f346-4bd2-8bb3-070dbc66e02e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BsTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BsTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavHeader/components/BaseMenu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavHeader/components/BaseRight.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavHeader/components/Notice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavHeader/components/Notice.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavHeader/components/menuItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavHeader/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavHeader/index.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PerPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PerPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TopHeader/TopHeader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TopHeader/TopHeader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/sagas/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login/Login.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TopBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopBar/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="356">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -118,17 +99,18 @@
       <updated>1542701785412</updated>
       <workItem from="1542701788571" duration="160000" />
       <workItem from="1545993651122" duration="7000" />
+      <workItem from="1553680837465" duration="596000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167000" />
+    <option name="totallyTimeSpent" value="763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="389" y="208" width="1400" height="657" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496329" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24926254" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -155,7 +137,7 @@
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
