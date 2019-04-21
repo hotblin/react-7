@@ -26,6 +26,8 @@ class NavMenu extends PureComponent {
         style={{ style }}
         mode={mode}
         onClick={menuBeClick}
+        // defaultOpenKeys={["1"]}
+        defaultSelectedKeys={["/dashboard"]}
         selectedKeys={this.selectedKeys()}
         className="nav-menu-custom float-left">
         <Menu.Item key="/email">
