@@ -7,11 +7,10 @@ import "@/style/reset.scss";
 import "@/style/common.scss";
 import "@/style/pages.scss";
 import "@/style/lib/font-awesome/css/font-awesome.min.css";
-import * as serviceWorker from "./serviceWorker";
 
 const Root = document.getElementById("root");
 
-const App = _ => {
+const App = () => {
   return (
     <Provider store={store}>
       <RouterView />
@@ -20,5 +19,3 @@ const App = _ => {
 };
 
 ReactDOM.render(<App />, Root);
-
-serviceWorker.unregister();

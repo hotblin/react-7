@@ -3,7 +3,7 @@
   background-size: cover;
   position: relative;
   min-height: 100vh;
-  transition: all .5s;
+  transition: all 0.5s;
   .login-bg {
     position: absolute;
     left: 0;
@@ -15,7 +15,7 @@
   }
   .login-container {
     background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 40px;
+    border-radius: 10px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
     padding: 30px;
     width: 380px;
@@ -88,8 +88,7 @@
     border-style: none solid solid;
     border-color: transparent transparent #3a20ad;
     border-image: url("../style/images/登录.png") rounded;
-    .login-trapezoid{
-
+    .login-trapezoid {
     }
   }
 }

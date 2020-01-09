@@ -1,13 +1,13 @@
-import {
-  combineReducers
-} from 'redux';
+import { combineReducers } from "redux";
 
-import userInfo from './user';
-import count from './count';
+import userInfo from "./user";
+import count from "./count";
+import tokenReducer from "./tokenReducer";
 const companyInfo = {};
 
 export default combineReducers({
   userInfo,
   count,
-  companyInfo
-})
+  companyInfo,
+  token: tokenReducer
+});

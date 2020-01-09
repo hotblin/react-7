@@ -1,3 +1,5 @@
-export const setToken = token => sessionStorage.setItem("token", token);
-export const getToken = _ => sessionStorage.getItem("token");
-export const removeToken = _ => sessionStorage.removeItem("token");
+const setToken = token => sessionStorage.setItem("token", token);
+const getToken = () => sessionStorage.getItem("token");
+const removeToken = () => sessionStorage.removeItem("token");
+
+export { setToken, getToken, removeToken };
