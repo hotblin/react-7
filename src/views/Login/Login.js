@@ -1,21 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import { Form, Icon, Input, Button, Checkbox, message } from "antd";
+import { withRouter } from "react-router";
 
 import imgUrl from "@static/image/login-blurry-bg.jpg";
 import logoUrl from "@static/image/login-logo.png";
-import { setToken } from "@/store/actions/tokenActions";
-import sleep from "@/utils/sleep";
+import { userLogin } from "@/store/actions/tokenActions";
 import "@/style/login.scss";
-import { withRouter } from "react-router";
 
 const FormItem = Form.Item;
 
 class LoginWrapper extends React.Component {
   state = {
     value: "",
-    active: false
+    active: false,
+    loading: false
   };
 
   toggleActive = bool => {
@@ -27,6 +26,7 @@ class LoginWrapper extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const { dispatch } = this.props;
+    this.setState({ loading: true });
     this.props.form.validateFields(async (err, data) => {
       if (!err) {
         // const b = dispatch(setToken(`${new Date().getTime()}`));
@@ -40,16 +40,14 @@ class LoginWrapper extends React.Component {
         //   console.log("====================================");
         // });
         try {
-          const b = await dispatch(setToken(`${new Date().getTime()}`));
+          const b = await dispatch(userLogin(data));
+          window.location.replace("/");
         } catch (error) {
-          console.log("====================================");
-          console.error(error);
-          console.log("====================================");
+          if (error) {
+            message.error("用户名admin，密码随便写");
+            this.setState({ loading: false });
+          }
         }
-
-        // this.props.setToken();
-        // window.location.replace("/");
-        // window.location.reload();
       }
     });
   };
@@ -110,6 +108,7 @@ class LoginWrapper extends React.Component {
                 type="primary"
                 htmlType="submit"
                 className="login-form-button"
+                loading={this.state.loading}
               >
                 登录
               </Button>
