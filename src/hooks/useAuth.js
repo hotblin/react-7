@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import sleep from "@/utils/sleep";
 
-// function hasAuth() {
-//   const [userInfo, loading] = useAuth();
-// }
-
 function useAuth(token) {
   const [userInfo, setUserInfo] = useState(null);
-  const [loading, setLoading] = useState(false);
-
+  const [loading, setLoading] = useState(true);
+  const [auth, setAuth] = useState(false);
   useEffect(() => {
     (async () => {
       setLoading(true);
@@ -19,16 +15,17 @@ function useAuth(token) {
           id: new Date().getTime(),
           role: "user"
         });
+        setAuth(true);
       } else {
         setUserInfo(null);
+        setAuth(false);
       }
       setLoading(false);
     })();
-
     return () => null;
   }, [token]);
 
-  return [userInfo, loading];
+  return [auth, loading, userInfo];
 }
 
 export default useAuth;

@@ -17,7 +17,6 @@ export default class HeaderBar extends Component {
     let lastScrollTop = 0;
     return window.addEventListener("scroll", () => {
       let st;
-      alert(1);
       st = document.documentElement.scrollTop;
       if (st > lastScrollTop) {
         this.setState({

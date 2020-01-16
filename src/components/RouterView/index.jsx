@@ -15,27 +15,26 @@ const DataCenter = () => <div>dataCenter</div>;
 const Loading = () => <div>loading...</div>;
 
 function RouterView({ token }) {
-  const [userInfo, loading] = useAuth(token);
-  console.log("====================================");
-  console.log(userInfo);
-  console.log(loading);
-  console.log("====================================");
+  const [auth, loading, userInfo] = useAuth(token);
+  if (userInfo) {
+    // 判断userInfo和获取的userInfo是否不一样，不一样就提交
+  }
   return (
     <Router>
       <Switch>
         <Route
           path="/login"
           exact
-          render={() => (userInfo ? <Redirect to="/" /> : <Login />)}
+          render={() => (auth ? <Redirect to="/" /> : <Login />)}
         />
         <Route path="/signup" exact component={Login} />
         <Route path="/datacenter" exact component={DataCenter} />
         <Route
           render={() =>
-            userInfo && !loading ? (
-              <MainLayout />
-            ) : loading ? (
+            loading ? (
               <Loading />
+            ) : auth ? (
+              <MainLayout />
             ) : (
               <Redirect to="/login" />
             )
